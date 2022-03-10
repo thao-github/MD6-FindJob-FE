@@ -10,6 +10,7 @@ const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'registerCompany', component: RegisterCompanyComponent},
+  {path:'company', loadChildren: () => import ('./company/company.module').then(module => module.CompanyModule)}
 ];
 
 @NgModule({

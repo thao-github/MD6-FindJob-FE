@@ -9,6 +9,9 @@ import { LoginComponent } from './register-login/login/login.component';
 import { NavbarComponent } from './shared/navbar-footer/navbar/navbar.component';
 import { FooterComponent } from './shared/navbar-footer/footer/footer.component';
 import { RegisterCompanyComponent } from './register-login/register-company/register-company.component';
+import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,10 +25,13 @@ import { RegisterCompanyComponent } from './register-login/register-company/regi
     RegisterCompanyComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

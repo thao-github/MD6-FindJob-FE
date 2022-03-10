@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     const signInFormUser = this.loginForm.value;
     this.loginService.login(signInFormUser).subscribe((data) => {
       console.log('account --->', data);
-      sessionStorage.setItem('account', data);
+      sessionStorage.setItem('account', JSON.stringify(data));
     }, error => {
       console.log(error)
     })

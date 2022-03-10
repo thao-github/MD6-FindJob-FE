@@ -8,7 +8,7 @@ import {SignInFormUser} from "../model/SignInFormUser";
   providedIn: 'root'
 })
 export class LoginService {
-  API_URL = environment.API_URL;
+  API_URL = environment.API_LOCAL;
 
   constructor(private http: HttpClient) { }
 

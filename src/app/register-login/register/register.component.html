@@ -6,7 +6,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-7">
-          <h1 class="text-white font-weight-bold">Register </h1>
+          <h1 class="text-white font-weight-bold">Register User </h1>
+          <h5 class="text-white font-weight-bold">Register to find your DREAM JOB</h5>
         </div>
       </div>
     </div>
@@ -20,12 +21,12 @@
 
       <!--REGISTER FORM-->
           <form [formGroup]="registerForm" (ngSubmit)="ngSubmit()">
-            <p>{{status}}</p>
+            <p style="color: darkred">{{status}}</p>
             <div class="row form-group">
               <div class="col-md-12">
                 <label class="text-black" for="name">Name (*)</label>
                 <input formControlName="name" type="text" id="name" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched">The name is required!</small>
+                <small style="color: darkred" *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched">Name required.</small>
               </div>
             </div>
 
@@ -33,8 +34,8 @@
               <div class="col-md-12">
                 <label class="text-black" for="email">Email (*)</label>
                 <input formControlName="email" type="email" id="email" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">The email is required!</small>
-                <small style="color: darkred" *ngIf="registerForm.controls['email'].hasError('email') && registerForm.controls['email'].touched">The email is invalid! Ex: thangdz@gmail.com</small>
+                <small style="color: darkred" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">Email required.</small>
+                <small style="color: darkred" *ngIf="registerForm.controls['email'].hasError('email') && registerForm.controls['email'].touched">Invalid email. Ex: thangdz@gmail.com</small>
               </div>
             </div>
 
@@ -42,8 +43,8 @@
               <div class="col-md-12">
                 <label class="text-black" for="password">Password (*)</label>
                 <input formControlName="password" type="password" id="password" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">The password is required!</small>
-                <small style="color: darkred" *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.controls['password'].touched">The password must more than 3 character</small>
+                <small style="color: darkred" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">Password required!</small>
+                <small style="color: darkred" *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.controls['password'].touched">Password must more than 3 characters</small>
               </div>
             </div>
 
@@ -51,8 +52,7 @@
               <div class="col-md-12">
                 <label class="text-black" for="cfpassword">Confirm Password (*)</label>
                 <input  type="password" id="cfpassword" class="form-control">
-<!--                <small style="color: darkred" *ngIf="registerForm.controls['cfpassword'].hasError('required') && registerForm.controls['cfpassword'].touched">Please confirm password!</small>-->
-                <p>{{statusConfirmPassword}}</p>
+                <p style="color: darkred">{{statusConfirmPassword}}</p>
               </div>
             </div>
 
@@ -60,7 +60,7 @@
               <div class="col-md-12">
                 <label class="text-black" for="phone">Phone</label>
                 <input formControlName="phoneNumber" type="text" id="phone" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['phoneNumber'].hasError('required') && registerForm.controls['phoneNumber'].touched">The phone is required!</small>
+                <small style="color: darkred" *ngIf="registerForm.controls['phoneNumber'].hasError('required') && registerForm.controls['phoneNumber'].touched">Phone required.</small>
               </div>
             </div>
 

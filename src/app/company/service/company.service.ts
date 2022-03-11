@@ -8,7 +8,7 @@ import {Company} from "../model/company";
   providedIn: 'root'
 })
 export class CompanyService {
-  API_URL = environment.API_URL;
+  API_URL = environment.API_LOCAL;
 
   constructor(private http: HttpClient) {
   }
@@ -20,4 +20,6 @@ export class CompanyService {
   editCompanyInfo(company: Company): Observable<any>{
     return this.http.put<any>(this.API_URL+`/company/`, company)
   }
+
+
 }

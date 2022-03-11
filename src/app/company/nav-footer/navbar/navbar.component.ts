@@ -12,8 +12,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  localStorageSaveCompanyCode(companyCode:String) {
-    // @ts-ignore
-    localStorage.setItem("company_code",companyCode);
-  }
 }

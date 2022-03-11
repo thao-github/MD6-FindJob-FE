@@ -17,6 +17,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSliderModule} from "@angular/material/slider";
 import {HttpClientModule} from "@angular/common/http";
+import { LoginCompanyComponent } from './register-login/login-company/login-company.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {HttpClientModule} from "@angular/common/http";
     NavbarComponent,
     FooterComponent,
     RegisterCompanyComponent,
+    LoginCompanyComponent,
 
   ],
   imports: [

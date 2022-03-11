@@ -9,6 +9,15 @@ import { LoginComponent } from './register-login/login/login.component';
 import { NavbarComponent } from './shared/navbar-footer/navbar/navbar.component';
 import { FooterComponent } from './shared/navbar-footer/footer/footer.component';
 import { RegisterCompanyComponent } from './register-login/register-company/register-company.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatSliderModule} from "@angular/material/slider";
+import {HttpClientModule} from "@angular/common/http";
+import { LoginCompanyComponent } from './register-login/login-company/login-company.component';
 
 
 @NgModule({
@@ -20,11 +29,21 @@ import { RegisterCompanyComponent } from './register-login/register-company/regi
     NavbarComponent,
     FooterComponent,
     RegisterCompanyComponent,
+    LoginCompanyComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSliderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

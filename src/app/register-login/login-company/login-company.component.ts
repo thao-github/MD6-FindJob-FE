@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./login-company.component.css']
 })
 export class LoginCompanyComponent implements OnInit {
+  status='';
   loginForm = new FormGroup({
     'email': new FormControl(null, Validators.required),
     'password': new FormControl(null, Validators.required)
@@ -22,12 +23,20 @@ export class LoginCompanyComponent implements OnInit {
 
   loginCompany() {
     const signInFormCompany = this.loginForm.value;
+    console.log(signInFormCompany);
     this.authService.signInCompany(signInFormCompany).subscribe((data) => {
-      sessionStorage.setItem('company', JSON.stringify(data));
-      this.router.navigate(['/company'])
-    }, error => {
-      console.log(error)
-    })
+      if (data.token != null) {
+        window.sessionStorage.setItem('company', JSON.stringify(data));
+        this.router.navigate(['/company']);
+      }
+      if (data.status === 202) {
+        this.status ='Email or Password invalid.'
+        this.loginForm.reset();
+      }
+    });
+
+
+
   }
 
 }

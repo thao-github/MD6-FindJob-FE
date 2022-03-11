@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../service/auth.service";
+import {finalize} from "rxjs";
+import {AngularFireStorage} from "@angular/fire/compat/storage";
 
 @Component({
   selector: 'app-register-company',
@@ -8,6 +10,37 @@ import {AuthService} from "../../service/auth.service";
   styleUrls: ['./register-company.component.css']
 })
 export class RegisterCompanyComponent implements OnInit {
+//upload file
+  selectedImg: any;
+  imgUrl = '';
+
+  @ViewChild('uploadFile', {static:true}) public avatarDom!: ElementRef;
+
+  constructor(private authService: AuthService,
+              private storage: AngularFireStorage) { }
+
+  ngOnInit(): void {
+  }
+
+  uploadFileImg() {
+    this.selectedImg = this.avatarDom?.nativeElement.files[0];
+    this.submit();
+  }
+
+  submit() {
+    if (this.selectedImg != null) {
+      const filePath = this.selectedImg.name;
+      const fileRef = this.storage.ref(filePath);
+      this.storage.upload(filePath, this.selectedImg).snapshotChanges().pipe(
+        finalize(() => (fileRef.getDownloadURL().subscribe(url => {
+          this.imgUrl = url;
+          console.log(url);
+        })))
+      ).subscribe();
+    }
+  }
+
+  // register
   status= '';
 
   registerForm = new FormGroup({
@@ -20,8 +53,8 @@ export class RegisterCompanyComponent implements OnInit {
       Validators.required,
       Validators.minLength(3)
     ]),
-    'address': new FormControl(),
-    'image': new FormControl(),
+    'description': new FormControl(null, Validators.required),
+    'avatar': new FormControl(null, Validators.required),
   });
 
   errorName: any = {
@@ -35,13 +68,9 @@ export class RegisterCompanyComponent implements OnInit {
     message: "yes"
   }
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
-
   ngSubmit() {
     const signUpCompany = this.registerForm.value;
+    signUpCompany.avatar = this.imgUrl
     console.log(signUpCompany);
     this.authService.signUpCompany(signUpCompany).subscribe(data => {
         console.log("data ==> ", JSON.stringify(data));

@@ -18,6 +18,7 @@
       <div class="row">
         <div class="col-lg-6 mb-5 mb-lg-0">
           <p>Please fill in this form to log in.</p>
+          <p style="color: darkred">{{status}}</p>
 
           <!--LOGIN FORM-->
           <form [formGroup]="loginForm"  (ngSubmit)="loginUser()" >

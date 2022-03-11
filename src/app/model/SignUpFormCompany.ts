@@ -6,6 +6,7 @@ export class SignUpFormCompany{
   private _address!: string;
 
 
+
   constructor(name: string, email: string, password: string, avatar: string, address: string) {
     this._name = name;
     this._email = email;

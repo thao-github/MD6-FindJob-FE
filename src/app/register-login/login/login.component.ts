@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
@@ -15,19 +15,25 @@ export class LoginComponent implements OnInit {
   })
 
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
+  status: any;
+
   loginUser() {
     const signInFormUser = this.loginForm.value;
     this.authService.login(signInFormUser).subscribe((data) => {
-      console.log('user --->', data);
-      sessionStorage.setItem('user', JSON.stringify(data));
-      // this.router.navigate(['USER PAGE'])
-    }, error => {
-      console.log(error)
-    })
+      if (data.token != null) {
+        window.sessionStorage.setItem('company', JSON.stringify(data));
+        this.router.navigate(['/company']);
+      }
+      if (data.status === 202) {
+        this.status = 'Email or Password invalid.'
+        this.loginForm.reset();
+      }
+    });
   }
 }

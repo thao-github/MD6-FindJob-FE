@@ -49,14 +49,15 @@ export class RegisterComponent implements OnInit {
       this.authService.signUp(signUpFormUser).subscribe(data => {
         console.log("data == ", data);
         if (JSON.stringify(data) == JSON.stringify(this.error2)) {
-          this.status = 'The email is existed! Please try again!'
+          this.status = 'The email existed.'
         }
         if (JSON.stringify(data) == JSON.stringify(this.success)) {
-          this.status = 'Create account success!'
+          this.statusConfirmPassword = '';
+          this.status = 'Create Account Success.'
         }
       })
     } else {
-      this.statusConfirmPassword = 'Confirmation password does not match!!';
+      this.statusConfirmPassword = 'Confirmation password does not match.';
     }
     console.log(this.registerForm.value)
   }

@@ -26,7 +26,7 @@
   margin: $dropdown-spacer 0 0; // override default ul
   @include font-size($dropdown-font-size);
   color: $dropdown-color;
-  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal userFooter)
   list-style: none;
   background-color: $dropdown-bg;
   background-clip: padding-box;

@@ -1,32 +1,41 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RegisterComponent } from './register-login/register/register.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './register-login/login/login.component';
-import { NavbarComponent } from './shared/navbar-footer/navbar/navbar.component';
-import { FooterComponent } from './shared/navbar-footer/footer/footer.component';
-import { RegisterCompanyComponent } from './register-login/register-company/register-company.component';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {RegisterComponent} from './register-login/register/register.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatSliderModule} from "@angular/material/slider";
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    HomeComponent,
-    LoginComponent,
-    NavbarComponent,
-    FooterComponent,
-    RegisterCompanyComponent,
-
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSliderModule,
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

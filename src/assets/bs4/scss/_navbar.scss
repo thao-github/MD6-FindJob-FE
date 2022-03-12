@@ -5,15 +5,15 @@
 // Navbar nav
 // Navbar text
 // Navbar divider
-// Responsive navbar
+// Responsive userNavbar
 // Navbar position
 // Navbar themes
 
 
 // Navbar
 //
-// Provide a static navbar from which we expand to create full-width, fixed, and
-// other navbar variations.
+// Provide a static userNavbar from which we expand to create full-width, fixed, and
+// other userNavbar variations.
 
 .navbar {
   position: relative;
@@ -56,11 +56,11 @@
 
 // Navbar nav
 //
-// Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
+// Custom userNavbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
 
 .navbar-nav {
   display: flex;
-  flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+  flex-direction: column; // cannot use `inherit` to get the `.userNavbar`s value
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -88,14 +88,14 @@
 }
 
 
-// Responsive navbar
+// Responsive userNavbar
 //
-// Custom styles for responsive collapsing and toggling of navbar contents.
+// Custom styles for responsive collapsing and toggling of userNavbar contents.
 // Powered by the collapse Bootstrap JavaScript plugin.
 
-// When collapsed, prevent the toggleable navbar contents from appearing in
+// When collapsed, prevent the toggleable userNavbar contents from appearing in
 // the default flexbox row orientation. Requires the use of `flex-wrap: wrap`
-// on the `.navbar` parent.
+// on the `.userNavbar` parent.
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
@@ -104,7 +104,7 @@
   align-items: center;
 }
 
-// Button for toggling the navbar when in its collapsed state
+// Button for toggling the userNavbar when in its collapsed state
 .navbar-toggler {
   padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
   @include font-size($navbar-toggler-font-size);
@@ -130,8 +130,8 @@
   background-size: 100% 100%;
 }
 
-// Generate series of `.navbar-expand-*` responsive classes for configuring
-// where your navbar collapses.
+// Generate series of `.userNavbar-expand-*` responsive classes for configuring
+// where your userNavbar collapses.
 .navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);

@@ -1,51 +1,94 @@
-
-<div class="container">
-
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Profile</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Profile</h4>
-        </div>
-        <div class="modal-body">
-
-
-          <br>
-          <p>abc.</p>
-          <br>
-          <input>
-          <br>
-          <p>cde.</p>
-          <br>
-          <input>
-          <br>
-          <p>aaa.</p>
-          <br>
-          <input>
-          <br>
-          <p>bkav.</p>
-          <br>
-          <input>
-
-
-        </div>
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-        </div>
-
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');"
+         id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="text-white font-weight-bold">Edit User</h1>
       </div>
-
     </div>
   </div>
+</section>
 
-</div>
+<section class="site-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-12">
+        <p style="color: darkgreen;">{{status}}</p>
+
+        <!--        EDIT FORM-->
+
+        <form [formGroup]="userForm" (ngSubmit)="saveChanges(id)">
+          <div class="form-group" hidden>
+            <label for="id">Id</label>
+            <input formControlName="id" class="form-control" id="id">
+          </div>
+
+          <div class="form-group">
+            <label for="name"> Name </label>
+            <input formControlName="name" class="form-control" id="name" >
+            <small *ngIf="userForm.controls['name'].hasError('required') && userForm.controls['name'].touched">Name required.</small>
+          </div>
+
+<!--          <div class="form-group">-->
+<!--            <label for="username">User Name</label>-->
+<!--            <input formControlName="username" class="form-control" id="username" >-->
+<!--            <small *ngIf="userForm.controls['username'].hasError('required') && userForm.controls['username'].touched">UserName required.</small>-->
+<!--          </div>-->
+
+          <div class="form-group">
+            <label for="password">PassWord</label>
+            <input formControlName="password" class="form-control" id="password" >
+            <small *ngIf="userForm.controls['password'].hasError('required') && userForm.controls['password'].touched">Password required.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="email"> Email </label>
+            <input formControlName="email" class="form-control" id="email">
+            <small *ngIf="userForm.controls['email'].hasError('required') && userForm.controls['email'].touched">Email required.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="cv">CV</label>
+            <input formControlName="cv" class="form-control" id="cv">
+            <small *ngIf="userForm.controls['cv'].hasError('required') && userForm.controls['cv'].touched">CV required.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input formControlName="phoneNumber" class="form-control" id="phoneNumber">
+            <small *ngIf="userForm.controls['phoneNumber'].hasError('required') && userForm.controls['phoneNumber'].touched">Phone Number required.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea formControlName="description" rows="5" class="form-control" id="description"></textarea>
+            <small *ngIf="userForm.controls['description'].hasError('required') && userForm.controls['description'].touched">Description required.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input formControlName="address" class="form-control" id="address">
+            <small *ngIf="userForm.controls['address'].hasError('required') && userForm.controls['address'].touched">Address required.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="facebook">FaceBook</label>
+            <input formControlName="facebook" class="form-control" id="facebook">
+            <small *ngIf="userForm.controls['facebook'].hasError('required') && userForm.controls['facebook'].touched">FaceBook required.</small>
+          </div>
+
+<!--          <div class="form-group">-->
+<!--            <label for="avatar">Avatar</label>-->
+<!--            <input style="height: 45px" type="file" id="avatar" class="form-control" formControlName="avatar" #uploadFile (change)="uploadFileImg()">-->
+<!--            <img [src]="imgUrl">-->
+<!--          </div>-->
+
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+
+        <!--        END FORM-->
+      </div>
+    </div>
+  </div>
+</section>

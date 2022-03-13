@@ -11,14 +11,16 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatSliderModule} from "@angular/material/slider";
-import { UserEditComponent } from './user/user-edit/user-edit.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    UserEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,9 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
     MatInputModule,
     MatButtonModule,
     MatSliderModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   exports: [],

@@ -4,14 +4,13 @@
       <div class="col-md-7">
         <h1 class="text-white font-weight-bold">User Profile</h1>
         <div class="custom-breadcrumbs">
-          <a href="#">Home</a> <span class="mx-2 slash">/</span>
+          <a [routerLink]="['/home']">Home</a> <span class="mx-2 slash">/</span>
           <span class="text-white"><strong>User Profile</strong></span>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 
 <section class="site-section">
   <div class="container">
@@ -22,17 +21,17 @@
             <img src="{{user.avatar}}" alt="Image">
           </div>
           <div>
-            <h2>{{user.name}} DAVID THANG CUI BAP </h2>
+            <h2>{{user.name}}</h2>
           </div>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="row">
           <div class="col-6">
-            <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Edit Profile</a>
+            <a [routerLink]="['/user/user-edit', user.id]" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Edit Profile</a>
           </div>
           <div class="col-6">
-            <a href="#" class="btn btn-block btn-primary btn-md">Back to home</a>
+            <a [routerLink]="['/home']" class="btn btn-block btn-primary btn-md">Back to home</a>
           </div>
         </div>
       </div>
@@ -42,62 +41,51 @@
       <div class="col-lg-8">
 
         <div class="mb-5">
-<!--          <figure class="mb-5"> <img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded"> </figure>-->
           <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span> User Name: </h3>
-          <p> {{user.username}} Thangngamcak123 </p>
+          <p> {{user.username}}</p>
         </div>
 
         <div class="mb-5">
           <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span> Password: </h3>
-          <p> {{user.password}} dcmm2212 </p>
+          <p> {{user.password}}</p>
         </div>
 
         <div class="mb-5">
           <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span> Email: </h3>
-          <p> {{user.email}} depzai02@gmail.com </p>
+          <p> {{user.email}}</p>
         </div>
 
         <div class="mb-5">
           <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Phone Number: </h3>
-          <p> {{user.phoneNumber}} 0812345322 </p>
+          <p> {{user.phoneNumber}}</p>
         </div>
 
         <div class="mb-5">
           <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Address: </h3>
-          <p> {{user.address}} Co Loa- Dong Anh- Ha Noi </p>
+          <p> {{user.address}}</p>
         </div>
 
         <div class="mb-5">
           <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Description: </h3>
-          <p> {{user.description}} thang nay ngu lam xin anh em dung nhan no vao lam </p>
+          <p> {{user.description}}</p>
         </div>
 
         <div class="mb-5">
           <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Facebook: </h3>
-          <p> {{user.facebook}} David Duc Thang DB </p>
+          <p> {{user.facebook}}</p>
         </div>
-
-        <div class="mb-5">
-          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Account Type: </h3>
-          <p> {{user.role}} User </p>
-        </div>
-
-
 
         <div class="row mb-5">
           <div class="col-6">
-            <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Edit Profile </a>
+            <a  [routerLink]="['/user/user-edit', user.id]" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Edit Profile </a>
           </div>
           <div class="col-6">
-            <a href="#" class="btn btn-block btn-primary btn-md">Back to home</a>
+            <a [routerLink]="['/home']" class="btn btn-block btn-primary btn-md">Back to home</a>
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </section>
-
 
 

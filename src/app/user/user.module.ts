@@ -9,8 +9,8 @@ import {FindAllJobComponent} from "./find-all-job/find-all-job.component";
 import {UserHomeComponent} from "./userHome/home.component";
 import {NavbarComponent} from "./userNavbar/navbar.component";
 import {FooterComponent} from "./userFooter/footer.component";
-import {AppModule} from "../app.module";
 import {UserDetailComponent} from "./user-details/userdetail.component";
+import {UserEditComponent} from "./user-edit/user-edit.component";
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import {UserDetailComponent} from "./user-details/userdetail.component";
     NavbarComponent,
     FooterComponent,
     UserDetailComponent,
+    UserEditComponent
   ],
     imports: [
         CommonModule,

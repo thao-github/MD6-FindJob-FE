@@ -5,10 +5,11 @@ export class Post {
   private _id!: number;
   private _title!: string
   private _postCode!: string
-  private _salary!: number
+  private _position!: string
+  private _salary!: string
   private _jobLocation!: string
-  private _experience!: string
-  private _jobType!: boolean
+  private _experience!: number
+  private _jobType!: string
   private _applicationDeadline!: Date
   private _description!: string
   private _vacancy!: number
@@ -18,10 +19,11 @@ export class Post {
   private _company!: Company;
 
 
-  constructor(id: number, title: string, postCode: string, salary: number, jobLocation: string, experience: string, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
+  constructor(id: number, title: string, postCode: string, position: string, salary: string, jobLocation: string, experience: number, jobType: string, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
     this._id = id;
     this._title = title;
     this._postCode = postCode;
+    this._position = position;
     this._salary = salary;
     this._jobLocation = jobLocation;
     this._experience = experience;
@@ -60,11 +62,19 @@ export class Post {
     this._postCode = value;
   }
 
-  get salary(): number {
+  get position(): string {
+    return this._position;
+  }
+
+  set position(value: string) {
+    this._position = value;
+  }
+
+  get salary(): string {
     return this._salary;
   }
 
-  set salary(value: number) {
+  set salary(value: string) {
     this._salary = value;
   }
 
@@ -76,19 +86,19 @@ export class Post {
     this._jobLocation = value;
   }
 
-  get experience(): string {
+  get experience(): number {
     return this._experience;
   }
 
-  set experience(value: string) {
+  set experience(value: number) {
     this._experience = value;
   }
 
-  get jobType(): boolean {
+  get jobType(): string {
     return this._jobType;
   }
 
-  set jobType(value: boolean) {
+  set jobType(value: string) {
     this._jobType = value;
   }
 

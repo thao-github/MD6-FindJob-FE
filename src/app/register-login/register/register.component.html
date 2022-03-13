@@ -1,84 +1,140 @@
 <app-navbar></app-navbar>
 <div class="site-wrap">
   <!-- HOME -->
-  <section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');"
-           id="home-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7">
-          <h1 class="text-white font-weight-bold">Register User </h1>
-          <h5 class="text-white font-weight-bold">Register to find your DREAM JOB</h5>
-        </div>
+
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');" id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="text-white font-weight-bold">Sign Up</h1>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="site-section" id="next-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <p>Please fill in this form to create an account.</p>
-
-      <!--REGISTER FORM-->
-          <form [formGroup]="registerForm" (ngSubmit)="ngSubmit()">
-            <p style="color: darkred">{{status}}</p>
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label class="text-black" for="name">Name (*)</label>
-                <input formControlName="name" type="text" id="name" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched">Name required.</small>
-              </div>
+<section class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-5">
+        <h2 class="mb-4">Sign Up User</h2>
+        <!--USER FORM-->
+        <form [formGroup]="registerFormUser" (ngSubmit)="registerUser()">
+          <p style="color: darkred">{{statusUser}}</p>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="username">Name (*)</label>
+              <input formControlName="name" type="text" id="username" class="form-control">
+              <small style="color: darkred" *ngIf="registerFormUser.controls['name'].hasError('required') && registerFormUser.controls['name'].touched">Name required.</small>
             </div>
+          </div>
 
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label class="text-black" for="email">Email (*)</label>
-                <input formControlName="email" type="email" id="email" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">Email required.</small>
-                <small style="color: darkred" *ngIf="registerForm.controls['email'].hasError('email') && registerForm.controls['email'].touched">Invalid email. Ex: thangdz@gmail.com</small>
-              </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="user-email">Email (*)</label>
+              <input formControlName="email" type="email" id="user-email" class="form-control">
+              <small style="color: darkred" *ngIf="registerFormUser.controls['email'].hasError('required') && registerFormUser.controls['email'].touched">Email required.</small>
+              <small style="color: darkred" *ngIf="registerFormUser.controls['email'].hasError('email') && registerFormUser.controls['email'].touched">Invalid email. Ex: thangdz@gmail.com</small>
             </div>
+          </div>
 
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label class="text-black" for="password">Password (*)</label>
-                <input formControlName="password" type="password" id="password" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">Password required!</small>
-                <small style="color: darkred" *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.controls['password'].touched">Password must more than 3 characters</small>
-              </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="user-password">Password (*)</label>
+              <input formControlName="password" type="password" id="user-password" class="form-control">
+              <small style="color: darkred" *ngIf="registerFormUser.controls['password'].hasError('required') && registerFormUser.controls['password'].touched">Password required!</small>
+              <small style="color: darkred" *ngIf="registerFormUser.controls['password'].hasError('minlength') && registerFormUser.controls['password'].touched">Password must more than 3 characters</small>
             </div>
+          </div>
 
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label class="text-black" for="cfpassword">Confirm Password (*)</label>
-                <input  type="password" id="cfpassword" class="form-control">
-                <p style="color: darkred">{{statusConfirmPassword}}</p>
-              </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="confirm-password">Confirm Password (*)</label>
+              <input  type="password" id="confirm-password" class="form-control">
+              <p style="color: darkred">{{statusConfirmPassword}}</p>
             </div>
+          </div>
 
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label class="text-black" for="phone">Phone</label>
-                <input formControlName="phoneNumber" type="text" id="phone" class="form-control">
-                <small style="color: darkred" *ngIf="registerForm.controls['phoneNumber'].hasError('required') && registerForm.controls['phoneNumber'].touched">Phone required.</small>
-              </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="phone">Phone</label>
+              <input formControlName="phoneNumber" type="text" id="phone" class="form-control">
+              <small style="color: darkred" *ngIf="registerFormUser.controls['phoneNumber'].hasError('required') && registerFormUser.controls['phoneNumber'].touched">Phone required.</small>
             </div>
+          </div>
 
-            <p>By creating an account you agree to our <a style="color: darkblue" href="#">Terms & Privacy</a>.</p>
-            <div class="row form-group">
-              <div class="col-md-12">
-                <input type="submit" value="Register" class="btn btn-primary btn-md text-white">
-              </div>
+          <p>By creating an account you agree to our <a style="color: darkblue" href="#">Terms & Privacy</a>.</p>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Register" class="btn btn-primary btn-md text-white">
             </div>
-            <p>Already have an account? <a style="color: darkblue" routerLink="/login"> Sign in</a>.</p>
-          </form>
-          <!--END REGISTER FORM-->
+          </div>
+          <p>Already have an account? <a style="color: darkblue" routerLink="/login"> Sign in</a>.</p>
+        </form>
+        <!--END USER FORM-->
+      </div>
 
-        </div>
+
+
+<!--      COMPANY FORM-->
+      <div class="col-lg-6">
+        <h2 class="mb-4">Sign up Company</h2>
+        <!-- START FORM-->
+        <form [formGroup]="registerFormCompany" (ngSubmit)="registerCompany()">
+          <p style="color: darkred">{{statusCompany}}</p>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="name">Company Name (*)</label>
+              <input type="text" id="name" class="form-control" formControlName="name">
+              <small style="color: darkred" *ngIf="registerFormCompany.controls['name'].hasError('required') && registerFormCompany.controls['name'].touched">Name required.</small>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="email">Email (*)</label>
+              <input type="email" id="email" class="form-control" formControlName="email">
+              <small style="color: darkred" *ngIf="registerFormCompany.controls['email'].hasError('required') && registerFormCompany.controls['email'].touched">Email required.</small>
+              <small style="color: darkred" *ngIf="registerFormCompany.controls['email'].hasError('email') && registerFormCompany.controls['email'].touched">Invalid email. Ex: thangdz@gmail.com</small>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="password">Password (*)</label>
+              <input type="password" id="password" class="form-control" formControlName="password">
+              <small style="color: darkred" *ngIf="registerFormCompany.controls['password'].hasError('required') && registerFormCompany.controls['password'].touched">Password required.</small>
+              <small style="color: darkred" *ngIf="registerFormCompany.controls['password'].hasError('minlength') && registerFormCompany.controls['password'].touched">Password must more than 3 characters</small>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="description">Description(*)</label>
+              <input type="text" id="description" class="form-control" formControlName="description">
+              <small style="color: darkred" *ngIf="registerFormCompany.controls['description'].hasError('required') && registerFormCompany.controls['description'].touched">Description required.</small>
+            </div>
+          </div>
+
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="image">Avatar</label>
+              <input style="height: 45px" type="file" id="image" class="form-control" formControlName="avatar" #uploadFile (change)="uploadFileImg()">
+              <img [src]="imgUrl">
+            </div>
+          </div>
+
+          <p>By creating an account you agree to our <a style="color: darkblue" href="#">Terms & Privacy</a>.</p>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Register" class="btn btn-primary btn-md text-white">
+            </div>
+          </div>
+          <p>Already have an account? <a style="color: darkblue" routerLink="/loginCompany"> Sign in</a>.</p>
+        </form>
+        <!--END FORM-->
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
 </div>
-
-

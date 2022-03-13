@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
         this.status = 'Email or Password invalid.'
         this.loginForm.reset();
       }
+    }, error => {
+      console.log(error)
     });
   }
 }

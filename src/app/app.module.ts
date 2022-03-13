@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './register-login/login/login.component';
 import { NavbarComponent } from './shared/navbar-footer/navbar/navbar.component';
 import { FooterComponent } from './shared/navbar-footer/footer/footer.component';
-import { RegisterCompanyComponent } from './register-login/register-company/register-company.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -17,7 +16,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSliderModule} from "@angular/material/slider";
 import {HttpClientModule} from "@angular/common/http";
-import { LoginCompanyComponent } from './register-login/login-company/login-company.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {environment} from "../environments/environment.prod";
@@ -31,8 +29,6 @@ import {environment} from "../environments/environment.prod";
     LoginComponent,
     NavbarComponent,
     FooterComponent,
-    RegisterCompanyComponent,
-    LoginCompanyComponent,
 
   ],
   imports: [

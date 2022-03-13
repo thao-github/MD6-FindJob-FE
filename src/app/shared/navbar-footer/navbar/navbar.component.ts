@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {reload} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  returnHome() {
+    this.router.navigate(['']);
+    setTimeout(function () {
+      window.location.reload();
+    },1 );
+  }
 }

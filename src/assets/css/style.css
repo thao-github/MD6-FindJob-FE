@@ -13,6 +13,7 @@
         padding-left: 15px;
         padding-right: 15px; } }
   .site-navbar .site-logo {
+    cursor: pointer;
     position: absolute;
     left: 5%; }
     @media (max-width: 767.98px) {
@@ -25,6 +26,7 @@
       letter-spacing: .2rem;
       text-transform: uppercase; }
       .site-navbar .site-logo a:hover {
+        color: #fff;
         text-decoration: none; }
   .site-navbar .site-burger-menu, .site-navbar .right-cta-menu {
     position: absolute;
@@ -917,6 +919,7 @@ h1, h2, h3, h4 {
 .btn.btn-primary {
   color: #fff; }
   .btn.btn-primary:hover {
+    color: #fff;
     background: #90c317;
     border-color: #90c317; }
 

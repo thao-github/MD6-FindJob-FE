@@ -8,21 +8,30 @@ import {Post} from "../model/Post";
   providedIn: 'root'
 })
 export class PostService {
-  private API_POST= environment.API_LOCAL + `post`
+  private API_COMPANY= environment.API_LOCAL +`company`
 
   constructor(private http: HttpClient) {
   }
 
   getAllPost():Observable<any>{
-    return this.http.get<any>(this.API_POST + `findAllPost`)
+    return this.http.get<any>(this.API_COMPANY + `/post`)
+  }
+
+  getAllField():Observable<any>{
+    return this.http.get<any>(this.API_COMPANY + `/field` )
+  }
+
+  createPost(post: Post):Observable<any>{
+    return this.http.post<any>(this.API_COMPANY +`/post/create`,post)
   }
 
   findPostById(id:number):Observable<any>{
-    return this.http.get<any>(this.API_POST +`${id}`)
+    return this.http.get<any>(this.API_COMPANY +`/post/${id}`)
   }
 
-  editPost(post:Post):Observable<any>{
-    return this.http.put<any>(this.API_POST, post)
+  editPost(id: number, post: Post): Observable<any> {
+    return this.http.put<any>(this.API_COMPANY + `/post/edit/${id}`, post)
   }
+
 
 }

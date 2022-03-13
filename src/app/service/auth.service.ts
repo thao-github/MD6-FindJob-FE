@@ -11,10 +11,10 @@ import {SignInFormCompany} from "../model/SignInFormCompany";
   providedIn: 'root'
 })
 export class AuthService {
-  private API_SIGNUP_USER = environment.API_LOCAL + 'signup/user';
-  private API_SIGNIN_USER = environment.API_LOCAL + 'signin/user';
-  private API_SIGNUP_COMPANY = environment.API_LOCAL + 'signup/company';
-  private API_SIGNIN_COMPANY = environment.API_LOCAL + 'signin/company';
+  private API_SIGNUP_USER = environment.API_LOCAL + 'users/register';
+  private API_SIGNIN_USER = environment.API_LOCAL + 'users/login';
+  private API_SIGNUP_COMPANY = environment.API_LOCAL + 'company/register';
+  private API_SIGNIN_COMPANY = environment.API_LOCAL + 'company/login';
 
   constructor(private http: HttpClient) { }
 

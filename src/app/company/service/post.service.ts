@@ -33,5 +33,9 @@ export class PostService {
     return this.http.put<any>(this.API_COMPANY + `/post/edit/${id}`, post)
   }
 
+  blockPost(id:number, status: boolean):Observable<any>{
+    return this.http.put<any>(this.API_COMPANY+`/post/status/${id}`,status)
+  }
+
 
 }

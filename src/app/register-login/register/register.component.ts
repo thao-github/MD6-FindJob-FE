@@ -124,7 +124,7 @@ export class RegisterComponent implements OnInit {
   registerCompany() {
     const signUpCompany = this.registerFormCompany.value;
     signUpCompany.avatar = this.imgUrl
-    console.log(signUpCompany);
+    console.log("signUpForm Value ===>",signUpCompany);
     this.authService.signUpCompany(signUpCompany).subscribe(data => {
       console.log("data ==> ", JSON.stringify(data));
       if (JSON.stringify(data) == JSON.stringify(this.errorName)) {

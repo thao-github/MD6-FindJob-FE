@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     const signInFormUser = this.loginForm.value;
     this.authService.login(signInFormUser).subscribe((data) => {
       if (data.token != null) {
+        console.log("login ok")
         window.sessionStorage.setItem('company', JSON.stringify(data));
         this.router.navigate(['/company']);
       }

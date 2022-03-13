@@ -16,6 +16,9 @@ export class NavbarComponent implements OnInit {
   logOut() {
     window.sessionStorage.removeItem('company')
     window.sessionStorage.removeItem('token');
-    this.router.navigate([''])
+    this.router.navigate(['']);
+    setTimeout(function () {
+      window.location.reload();
+    },1 );
   }
 }

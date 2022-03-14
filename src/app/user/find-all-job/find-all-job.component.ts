@@ -19,16 +19,15 @@ export class FindAllJobComponent implements OnInit {
   constructor(private http: HttpClient, private postService: PostService) {
   }
 
-  post: Post = new Post(0,'',0,'',0,true,'','',0,'','',true);
 
   ngOnInit(): void {
     this.formCRUD_User = new FormGroup({
       id: new FormControl(0),
       title: new FormControl(""),
-      price: new FormControl(0),
+      salary: new FormControl(""),
       jobLocation: new FormControl(""),
       experience: new FormControl(0),
-      jobType: new FormControl(true),
+      jobType: new FormControl(''),
       applicationDeadline: new FormControl(""),
       description: new FormControl(""),
       vacancy: new FormControl(0),

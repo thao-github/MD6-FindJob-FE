@@ -12,28 +12,25 @@ import {SignUpFormCompany} from "../model/SignUpFormCompany";
 })
 export class AuthService {
   private API_SIGNUP_USER = environment.API_LOCAL + 'users/register';
-  private API_SIGNIN_USER = environment.API_LOCAL + 'users/login';
+  private API_LOGIN_USER = environment.API_LOCAL + 'users/login';
   private API_SIGNUP_COMPANY = environment.API_LOCAL + 'company/register';
+  private API_LOGIN_COMPANY = environment.API_LOCAL + 'company/login';
 
   constructor(private http: HttpClient) { }
 
-  signUp(signUpUser: SignUpFormUser): Observable<any> {
-    return this.http.post<any>(this.API_SIGNUP_USER, signUpUser);
+  signUp(signUpFormUser: SignUpFormUser): Observable<any> {
+    return this.http.post<any>(this.API_SIGNUP_USER, signUpFormUser);
   }
 
-  login(signInForm: SignInForm): Observable<any>{
-    return this.http.post<any>(this.API_SIGNIN_USER, signInForm)
+  loginUser(signInFormUser: SignInForm): Observable<any>{
+    return this.http.post<any>(this.API_LOGIN_USER, signInFormUser)
   }
 
-  signUpCompany(signUpCompany: SignUpFormCompany): Observable<any> {
-    return this.http.post<any>(this.API_SIGNUP_COMPANY, signUpCompany);
+  signUpCompany(signUpFormCompany: SignUpFormCompany): Observable<any> {
+    return this.http.post<any>(this.API_SIGNUP_COMPANY, signUpFormCompany);
   }
 
-  // signInCompany(signInFormCompany: SignInFormCompany): Observable<any>{
-  //   return this.http.post<any>(this.API_SIGNIN_COMPANY, signInFormCompany)
-  // }
-
-
-
-
+  loginCompany(signInFormCompany: SignInForm): Observable<any>{
+    return this.http.post<any>(this.API_LOGIN_COMPANY, signInFormCompany)
+  }
 }

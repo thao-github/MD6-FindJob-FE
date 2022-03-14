@@ -12,44 +12,85 @@
     </div>
   </section>
 
-  <section class="site-section" id="next-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <p>Please fill in this form to log in.</p>
-          <p style="color: darkred">{{status}}</p>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#login-user" role="tab" aria-controls="nav-home" aria-selected="true" (click)="reload()">User</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#login-company" role="tab" aria-controls="nav-profile" aria-selected="false" (click)="reset()">Company</a>
+    </div>
 
-          <!--LOGIN FORM-->
-          <form [formGroup]="loginForm"  (ngSubmit)="login()" >
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label class="text-black" for="email">Email </label>
-                <input type="email" id="email" class="form-control" formControlName="email">
-                <small *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email required.</small>
-              </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="login-user" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="col-lg-6 mb-5 mb-lg-0"><br>
+        <p style="font-size: 18px">Please fill in this form to log in.</p>
+        <p style="color: darkred; size: 30px">{{status}}</p>
+
+        <!-- USER FORM-->
+        <form [formGroup]="loginFormUser"  (ngSubmit)="loginUser()" >
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="email">Email (*) </label>
+              <input type="email" id="email" class="form-control" formControlName="email">
+              <small style="color: darkred" *ngIf="loginFormUser.controls['email'].hasError('required') && loginFormUser.controls['email'].touched ">Email required.</small>
+              <small style="color: darkred" *ngIf="loginFormUser.controls['email'].hasError('email') && loginFormUser.controls['email'].touched ">Invalid email. Ex: user@gmail.com.</small>
             </div>
+          </div>
 
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label class="text-black" for="password">Password </label>
-                <input type="password" id="password" class="form-control" formControlName="password">
-                <small *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password required.</small>
-              </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="password">Password (*) </label>
+              <input type="password" id="password" class="form-control" formControlName="password">
+              <small style="color: darkred"  *ngIf="loginFormUser.controls['password'].hasError('required') && loginFormUser.controls['password'].touched">Password required.</small>
             </div>
+          </div>
 
-            <div class="row form-group">
-              <div class="col-md-12">
-                <input type="submit" value="Login" class="btn btn-primary btn-md text-white">
-              </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Login" class="btn btn-primary btn-md text-white">
             </div>
-          </form>
-          <!--END LOGIN FORM-->
-
-        </div>
+          </div>
+          <p>Register an account? <a style="color: darkblue" routerLink="/register" > Register</a>.</p>
+        </form>
+        <!--END LOGIN FORM-->
       </div>
     </div>
-  </section>
 
+
+    <div class="tab-pane fade" id="login-company" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="col-lg-6 mb-5 mb-lg-0"><br>
+        <p style="font-size: 18px">Please fill in this form to log in.</p>
+        <p style="color: darkred">{{status}}</p>
+
+        <!--COMPANY FORM-->
+        <form [formGroup]="loginFormCompany"  (ngSubmit)="loginCompany()" >
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="user-email">Email (*) </label>
+              <input type="email" id="user-email" class="form-control" formControlName="email">
+              <small style="color: darkred"  *ngIf="loginFormCompany.controls['email'].hasError('required') && loginFormCompany.controls['email'].touched">Email required.</small>
+              <small style="color: darkred" *ngIf="loginFormCompany.controls['email'].hasError('email') && loginFormCompany.controls['email'].touched ">Invalid email. Ex: company@gmail.com.</small>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="user-password">Password (*) </label>
+              <input type="password" id="user-password" class="form-control" formControlName="password">
+              <small style="color: darkred" *ngIf="loginFormCompany.controls['password'].hasError('required') && loginFormCompany.controls['password'].touched">Password required.</small>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Login" class="btn btn-primary btn-md text-white">
+            </div>
+          </div>
+        </form>
+        <!--END LOGIN FORM-->
+
+      </div>
+    </div>
+  </div>
 </div>
 
 

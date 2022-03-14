@@ -22,7 +22,7 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  post: Post = new Post(0,'',0,'',0,true,'','',0,'','',true);
+  post: Post = new Post(0,'','','',0,'','','',0,'','',true);
 
   postDetail() {
     this.postService.findPostById(this.id).subscribe(data => {

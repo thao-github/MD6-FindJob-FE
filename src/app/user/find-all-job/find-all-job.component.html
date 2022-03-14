@@ -9,7 +9,6 @@
       </div>
 
       <ul class="job-listings mb-5">
-
         <li *ngFor="let p of posts" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
           <a [routerLink]= "['/post/post-detail', p.id]"></a>
           <div class="job-listing-logo">
@@ -19,10 +18,12 @@
           <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
             <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
               <h2>{{p.title}}</h2>
-              <strong>{{p.jobLocation}}</strong>
+              <strong>Vacancy: {{p.vacancy}}</strong><br>
+              <strong>Experience: {{p.experience}}</strong><br>
+              <strong>Salary: {{p.salary}}</strong>
             </div>
             <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> {{p.vacancy}}
+              <span class="icon-room"></span> {{p.jobLocation}}
             </div>
             <div class="job-listing-meta">
               <span class="badge badge-danger">{{p.jobType}}</span>

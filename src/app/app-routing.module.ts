@@ -8,7 +8,8 @@ const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
-  {path:'company', loadChildren: () => import ('./company/company.module').then(module => module.CompanyModule)}
+  {path:'company', loadChildren: () => import ('./company/company.module').then(module => module.CompanyModule)},
+  {path:'user', loadChildren: () => import ('./user/user.module').then(module => module.UserModule)}
 ];
 
 @NgModule({

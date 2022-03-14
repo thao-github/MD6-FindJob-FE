@@ -1,4 +1,4 @@
-export class SignInFormCompany {
+export class SignInForm {
   private _email!: string;
   private _password!: string;
 

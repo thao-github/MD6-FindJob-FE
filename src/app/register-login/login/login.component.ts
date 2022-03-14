@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
+import jwt_decode from 'jwt-decode';
+
 
 @Component({
   selector: 'app-login',
@@ -18,25 +20,48 @@ export class LoginComponent implements OnInit {
               private router: Router) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
   }
 
   status: any;
+  token = '';
+  tokenInfo : any;
+  decodeToken = '';
+  result: any;
+  isCompany!: boolean;
 
   login() {
-    const signInFormUser = this.loginForm.value;
-    this.authService.login(signInFormUser).subscribe((data) => {
-      if (data.token != null) {
-        console.log("login ok")
-        window.sessionStorage.setItem('company', JSON.stringify(data));
-        this.router.navigate(['/company']);
+    const signInForm = this.loginForm.value;
+    this.authService.login(signInForm).subscribe((data) => {
+      this.token = data.token;
+      console.log('data===>', data)
+      this.tokenInfo = this.getDecodedAccessToken(this.token);
+
+      this.isCompany = this.tokenInfo.isCompany;
+      if(this.isCompany) {
+        this.router.navigate(['/company'])
+      } else {
+        this.router.navigate(['/user'])
       }
-      if (data.status === 202) {
-        this.status = 'Email or Password invalid.'
-        this.loginForm.reset();
-      }
-    }, error => {
-      console.log(error)
-    });
+      window.sessionStorage.setItem('data', JSON.stringify(this.tokenInfo));
+    })
+  }
+
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      return null;
+    }
+  }
+
+
+  loginUser() {
+
+  }
+
+  loginCompany() {
+
   }
 }
+

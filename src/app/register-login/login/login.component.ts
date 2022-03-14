@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   status: any;
 
-  loginUser() {
+  login() {
     const signInFormUser = this.loginForm.value;
     this.authService.login(signInFormUser).subscribe((data) => {
       if (data.token != null) {

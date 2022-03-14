@@ -10,7 +10,7 @@
 
       <ul class="job-listings mb-5">
         <li *ngFor="let p of posts" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a [routerLink]= "['/post/post-detail', p.id]"></a>
+          <a [routerLink]= "['/user/post-detail', p.id]"></a>
           <div class="job-listing-logo">
             <img src="assets/images/job_logo_1.jpg" alt="Free Website Template by Free-Template.co"
                  class="img-fluid">
@@ -30,7 +30,6 @@
             </div>
           </div>
         </li>
-
       </ul>
 
       <div class="row pagination-wrap">

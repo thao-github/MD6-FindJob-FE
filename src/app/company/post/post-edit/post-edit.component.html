@@ -26,7 +26,7 @@
             <label for="job-title">Job Title</label>
             <input formControlName="title" type="text" class="form-control" id="job-title"
                    placeholder="Java Web Designer">
-            <small *ngIf="postForm.controls['title'].hasError('required') && postForm.controls['title'].touched">Job Title required.</small>
+            <small style="color: darkred" *ngIf="postForm.controls['title'].hasError('required') && postForm.controls['title'].touched">Job Title required.</small>
           </div>
 
           <div class="form-group">
@@ -34,21 +34,21 @@
             <select formControlName="field" class="selectpicker border rounded" id="field" data-style="btn-black"
                     data-width="100%"
                     data-live-search="true" title="Select">
-              <option *ngFor="let field of fields" [ngValue]="field">{{field.name}}</option>
+              <option style="color: darkred" *ngFor="let field of fields" [ngValue]="field">{{field.name}}</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="location">Location</label>
             <input formControlName="jobLocation" type="text" class="form-control" id="location" placeholder="Hanoi" >
-            <small *ngIf="postForm.controls['jobLocation'].hasError('required') && postForm.controls['jobLocation'].touched">Job Location required.</small>
+            <small style="color: darkred" *ngIf="postForm.controls['jobLocation'].hasError('required') && postForm.controls['jobLocation'].touched">Job Location required.</small>
           </div>
 
           <div class="form-group">
             <label for="experience">Experience</label>
             <input formControlName="experience" type="text" class="form-control" id="experience"
                    placeholder="1-2 years" required>
-            <small *ngIf="postForm.controls['experience'].hasError('required') && postForm.controls['experience'].touched">Job Location required.</small>
+            <small style="color: darkred" *ngIf="postForm.controls['experience'].hasError('required') && postForm.controls['experience'].touched">Job Location required.</small>
           </div>
 
           <div class="form-group">
@@ -66,21 +66,21 @@
             <label for="job-type">Job Type</label>
             <input formControlName="jobType" type="text" class="form-control" id="job-type"
                    placeholder="Full-time/ Part-time" required>
-            <small *ngIf="postForm.controls['jobType'].hasError('required') && postForm.controls['jobType'].touched">Job Type required.</small>
+            <small style="color: darkred" *ngIf="postForm.controls['jobType'].hasError('required') && postForm.controls['jobType'].touched">Job Type required.</small>
           </div>
 
           <div class="form-group">
             <label for="position">Job Position</label>
             <input formControlName="position" type="text" class="form-control" id="position"
                    placeholder="Fresher/Junior/Senior" required>
-            <small *ngIf="postForm.controls['position'].hasError('required') && postForm.controls['position'].touched">Job Position required.</small>
+            <small style="color: darkred" *ngIf="postForm.controls['position'].hasError('required') && postForm.controls['position'].touched">Job Position required.</small>
           </div>
 
           <div class="form-group">
             <label for="job-description">Job Description</label>
             <textarea formControlName="description" rows="5" class="form-control" id="job-description"
                       placeholder="Write job description here" required></textarea>
-            <small *ngIf="postForm.controls['description'].hasError('required') && postForm.controls['description'].touched">Description required.</small>
+            <small style="color: darkred" *ngIf="postForm.controls['description'].hasError('required') && postForm.controls['description'].touched">Description required.</small>
           </div>
 
           <div class="form-group">
@@ -92,7 +92,7 @@
           <div class="form-group">
             <label for="gender">Gender</label>
             <input formControlName="gender" type="text" class="form-control" id="gender" placeholder="Male/Female/Any" required>
-            <small *ngIf="postForm.controls['gender'].hasError('required') && postForm.controls['gender'].touched">Gender required.</small>
+            <small style="color: darkred" *ngIf="postForm.controls['gender'].hasError('required') && postForm.controls['gender'].touched">Gender required.</small>
           </div>
 
           <div class="form-group">

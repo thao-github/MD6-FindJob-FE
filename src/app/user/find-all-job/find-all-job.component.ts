@@ -16,9 +16,8 @@ export class FindAllJobComponent implements OnInit {
 
   formCRUD_User!: FormGroup;
 
-  constructor(private http: HttpClient, private postService: PostService) {
+  constructor(private http: HttpClient, private postService: PostService, private router: Router ) {
   }
-
 
   ngOnInit(): void {
     this.formCRUD_User = new FormGroup({

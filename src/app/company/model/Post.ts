@@ -9,7 +9,7 @@ export class Post {
   private _salary!: string
   private _jobLocation!: string
   private _experience!: number
-  private _jobType!: string
+  private _jobType!: boolean
   private _applicationDeadline!: Date
   private _description!: string
   private _vacancy!: number
@@ -18,8 +18,7 @@ export class Post {
   private _field!: Field;
   private _company!: Company;
 
-
-  constructor(id: number, title: string, postCode: string, position: string, salary: string, jobLocation: string, experience: number, jobType: string, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
+  constructor(id: number, title: string, postCode: string, position: string, salary: string, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
     this._id = id;
     this._title = title;
     this._postCode = postCode;
@@ -94,11 +93,12 @@ export class Post {
     this._experience = value;
   }
 
-  get jobType(): string {
+
+  get jobType(): boolean {
     return this._jobType;
   }
 
-  set jobType(value: string) {
+  set jobType(value: boolean) {
     this._jobType = value;
   }
 

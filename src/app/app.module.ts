@@ -19,6 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {environment} from "../environments/environment.prod";
+import {CompanyGuard} from "./user/service/company.guard";
+import {UserGuard} from "./user/service/user.guard";
 
 
 @NgModule({
@@ -46,7 +48,7 @@ import {environment} from "../environments/environment.prod";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule
   ],
-  providers: [],
+  providers: [CompanyGuard,UserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

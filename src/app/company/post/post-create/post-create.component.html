@@ -62,7 +62,7 @@
           <div class="form-group">
             <label for="job-type">Job Type</label>
             <input formControlName="jobType" type="text" class="form-control" id="job-type"
-                   placeholder="Full-time/ Part-time">
+                   placeholder="true(Full-time)/false(Part-time)">
             <small *ngIf="postForm.controls['jobType'].hasError('required') && postForm.controls['jobType'].touched">Job Type required.</small>
           </div>
 

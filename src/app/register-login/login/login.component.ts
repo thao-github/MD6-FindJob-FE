@@ -33,14 +33,12 @@ export class LoginComponent implements OnInit {
   token: any;
   tokenInfo: any;
   decodeToken = '';
-  isCompany!: boolean;
+  userId: any;
+  companyId: any;
 
   loginUser() {
-    window.sessionStorage.removeItem('data');
-    window.sessionStorage.removeItem('user');
-    window.sessionStorage.removeItem('company');
+    window.sessionStorage.clear();
     const signInForm = this.loginFormUser.value;
-
     this.authService.loginUser(signInForm).subscribe((data) => {
       this.token = data.token;
       if (this.token === null) {
@@ -48,13 +46,14 @@ export class LoginComponent implements OnInit {
         this.loginFormUser.reset();
       } else {
         this.tokenInfo = this.getDecodedAccessToken(this.token);
-        this.isCompany = this.tokenInfo.isCompany;
-        if (this.isCompany) {
-          this.status = 'Unauthorized Access'
+        this.userId = this.tokenInfo.USER_ID;
+        console.log("company Id ===>", this.userId);
+        if (this.userId) {
+          this.router.navigate(['/user']);
+          window.sessionStorage.setItem('user', this.userId);
         } else {
-          this.router.navigate(['/user'])
+          this.status = 'Unauthorized Access'
         }
-        window.sessionStorage.setItem('user', JSON.stringify(this.tokenInfo));
       }
     })
   }
@@ -68,9 +67,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginCompany() {
-    window.sessionStorage.removeItem('data');
-    window.sessionStorage.removeItem('user');
-    window.sessionStorage.removeItem('company');
+    window.sessionStorage.clear();
     const signInForm = this.loginFormCompany.value;
 
     this.authService.loginCompany(signInForm).subscribe((data) => {
@@ -80,13 +77,13 @@ export class LoginComponent implements OnInit {
         this.loginFormUser.reset();
       } else {
         this.tokenInfo = this.getDecodedAccessToken(this.token);
-        this.isCompany = this.tokenInfo.isCompany;
-        if (this.isCompany) {
-          this.router.navigate(['/company'])
+        this.companyId = this.tokenInfo.COMPANY_ID;
+        if (this.companyId) {
+          this.router.navigate(['/company']);
+          window.sessionStorage.setItem('company', this.companyId);
         } else {
           this.status = 'Unauthorized Access'
         }
-        window.sessionStorage.setItem('company', JSON.stringify(this.tokenInfo));
       }
     })
   }

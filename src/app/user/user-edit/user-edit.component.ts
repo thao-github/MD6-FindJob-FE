@@ -12,7 +12,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
-
   user: Users[] = [];
   status: any;
 

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {Users} from "../model/users";
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../service/userService";
+import {Users} from "../model/users";
+
 
 @Component({
   selector: 'app-user-details',
@@ -9,26 +9,24 @@ import {UserService} from "../service/userService";
   styleUrls: ['./userDetail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-
+  user!: Users;
   id!: number;
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = Number(<string>paramMap.get('id'))
-      this.userDetail()
-    });
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
+    // @ts-ignore
+    this.id = window.sessionStorage.getItem('user');
+    this.findUserById(this.id);
   }
 
-  user : Users = new Users(0,'','','','','','','','','','',0,'','','','','','');
-
-  userDetail() {
-    this.userService.findUserById(this.id).subscribe(data => {
-      this.user = data
-      console.log(this.user)
+  findUserById(id: number) {
+    this.userService.findUserById(id).subscribe((user) => {
+      this.user = user;
+      console.log('user--->', user)
     })
   }
+
 
 }

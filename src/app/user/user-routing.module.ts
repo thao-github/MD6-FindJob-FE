@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'post-detail/:id', component: PostDetailsComponent},
   {path: 'post-list', component: FindAllJobComponent},
   {path: 'user-detail/:id', component: UserDetailComponent},
-  {path: 'home', component: UserHomeComponent},
+  {path: 'userHome', component: UserHomeComponent},
   {path: 'user-edit/:id', component: UserEditComponent},
 ];
 

@@ -2,7 +2,7 @@
 export class Post{
   id!: number;
   title!: string;
-  price!: number;
+  salary!: number;
   // vị trí tuyển dụng
   jobLocation!: string;
   // kinh nghiệm
@@ -19,10 +19,10 @@ export class Post{
   status!: boolean;
 
 
-  constructor(id: number, title: string, price: number, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: string, description: string, vacancy: number, gender: string, postCode: string, status: boolean) {
+  constructor(id: number, title: string, salary: number, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: string, description: string, vacancy: number, gender: string, postCode: string, status: boolean) {
     this.id = id;
     this.title = title;
-    this.price = price;
+    this.salary = salary;
     this.jobLocation = jobLocation;
     this.experience = experience;
     this.jobType = jobType;

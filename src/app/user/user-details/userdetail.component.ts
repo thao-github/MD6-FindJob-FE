@@ -22,7 +22,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  user : Users = new Users(0,'','','','','','','','','','',0,'','','','','','');
+  user : Users = new Users(0,'','','','','','','','');
 
   userDetail() {
     this.userService.findUserById(this.id).subscribe(data => {

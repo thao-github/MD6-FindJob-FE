@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Post} from "../model/post";
 import {PostService} from "../service/postService";
 import {ActivatedRoute, ParamMap} from "@angular/router";
+import {Company} from "../../company/model/company";
 
 @Component({
   selector: 'app-post-details',
@@ -21,6 +22,8 @@ export class PostDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  company: Company = new Company(0,'','','','','','','',0,'','','','','')
 
   post: Post = new Post(0,'',0,'',0,true,'','',0,'','',true);
 

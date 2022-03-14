@@ -26,14 +26,8 @@
           <div class="form-group">
             <label for="name"> Name </label>
             <input formControlName="name" class="form-control" id="name" >
-            <small *ngIf="userForm.controls['name'].hasError('required') && userForm.controls['name'].touched">Name required.</small>
+            <small style="color: darkred" *ngIf="userForm.controls['name'].hasError('required') && userForm.controls['name'].touched">Name required.</small>
           </div>
-
-<!--          <div class="form-group">-->
-<!--            <label for="username">User Name</label>-->
-<!--            <input formControlName="username" class="form-control" id="username" >-->
-<!--            <small *ngIf="userForm.controls['username'].hasError('required') && userForm.controls['username'].touched">UserName required.</small>-->
-<!--          </div>-->
 
           <div class="form-group">
             <label for="password">PassWord</label>
@@ -60,33 +54,21 @@
           </div>
 
           <div class="form-group">
-            <label for="description">Description</label>
-            <textarea formControlName="description" rows="5" class="form-control" id="description"></textarea>
-            <small *ngIf="userForm.controls['description'].hasError('required') && userForm.controls['description'].touched">Description required.</small>
-          </div>
-
-          <div class="form-group">
             <label for="address">Address</label>
             <input formControlName="address" class="form-control" id="address">
             <small *ngIf="userForm.controls['address'].hasError('required') && userForm.controls['address'].touched">Address required.</small>
           </div>
 
           <div class="form-group">
-            <label for="facebook">FaceBook</label>
-            <input formControlName="facebook" class="form-control" id="facebook">
-            <small *ngIf="userForm.controls['facebook'].hasError('required') && userForm.controls['facebook'].touched">FaceBook required.</small>
+            <label for="avatar">Avatar</label>
+            <input style="height: 45px" type="file" id="avatar" class="form-control" formControlName="avatar" #uploadFile (change)="uploadFileImg()">
+            <img [src]="imgUrl" width="130px" height="150px">
           </div>
-
-<!--          <div class="form-group">-->
-<!--            <label for="avatar">Avatar</label>-->
-<!--            <input style="height: 45px" type="file" id="avatar" class="form-control" formControlName="avatar" #uploadFile (change)="uploadFileImg()">-->
-<!--            <img [src]="imgUrl">-->
-<!--          </div>-->
-
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary"> <a style="color: #001f42" [routerLink]="['/user/userHome']"> Back to home</a></button>
+          &ensp;
+          &ensp;
           <button type="submit" class="btn btn-primary">Save changes</button>
         </form>
-
         <!--        END FORM-->
       </div>
     </div>

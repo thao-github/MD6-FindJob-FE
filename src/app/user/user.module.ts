@@ -37,4 +37,4 @@ import {CompanyModule} from "../company/company.module";
   bootstrap: [UserComponent]
 })
 
-export class UserModule{ }
+export class UserModule{}

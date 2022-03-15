@@ -8,10 +8,10 @@ import {UserEditComponent} from "./user-edit/user-edit.component";
 
 
 const routes: Routes = [
+  {path: '', component: UserHomeComponent},
   {path: 'post-detail/:id', component: PostDetailsComponent},
   {path: 'post-list', component: FindAllJobComponent},
-  {path: 'user-detail/:id', component: UserDetailComponent},
-  {path: 'userHome', component: UserHomeComponent},
+  {path: 'profile', component: UserDetailComponent},
   {path: 'user-edit/:id', component: UserEditComponent},
 ];
 

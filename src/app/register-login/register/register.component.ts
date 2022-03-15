@@ -11,33 +11,32 @@ import {finalize} from "rxjs";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  statusUser= '';
-  statusConfirmPassword= '';
-  registerFormUser = new FormGroup({
-    'name': new FormControl(null, Validators.required),
-    'email': new FormControl('', [
-      Validators.required,
-      Validators.email
-    ]),
-    'password': new FormControl('', [
-      Validators.required,
-      Validators.minLength(3)
-    ]),
-    'phoneNumber': new FormControl(null, Validators.required),
-    'roles': new FormControl(['USER'])
-  });
-
-  error2: any = {
+  statusUser = '';
+  statusConfirmPassword = '';
+  statusCompany = '';
+  signUpFormUser!: SignUpFormUser;
+  errorEmail: any = {
     message: "email_existed"
+  }
+  errorName: any = {
+    message: 'name_existed'
   }
   success: any = {
     message: "yes"
   }
 
-  signUpFormUser!: SignUpFormUser;
+  registerFormUser = new FormGroup({
+    'name': new FormControl(null, Validators.required),
+    'email': new FormControl('', [Validators.required, Validators.email]),
+    'password': new FormControl('', [Validators.required, Validators.minLength(3)]),
+    'phoneNumber': new FormControl(null, Validators.required),
+    'roles': new FormControl(['USER'])
+  });
+
 
   constructor(private authService: AuthService,
-              private storage: AngularFireStorage) { }
+              private storage: AngularFireStorage) {
+  }
 
   ngOnInit(): void {
   }
@@ -46,15 +45,12 @@ export class RegisterComponent implements OnInit {
     const signUpFormUser = this.registerFormUser.value;
     // @ts-ignore
     const password = document.getElementById("user-password").value;
-    console.log("p2==1",password)
     // @ts-ignore
     const confirmPassword = document.getElementById("confirm-password").value;
-    console.log("p2==>", confirmPassword)
     if (password === confirmPassword) {
-      console.log("oke")
       this.authService.signUp(signUpFormUser).subscribe(data => {
         console.log("data == ", data);
-        if (JSON.stringify(data) == JSON.stringify(this.error2)) {
+        if (JSON.stringify(data) == JSON.stringify(this.errorEmail)) {
           this.statusUser = 'The email existed.'
         }
         if (JSON.stringify(data) == JSON.stringify(this.success)) {
@@ -65,17 +61,13 @@ export class RegisterComponent implements OnInit {
     } else {
       this.statusConfirmPassword = 'Confirmation password does not match.';
     }
-    console.log(this.registerFormUser.value)
   }
 
 
-
   // COMPANY SIGN UP
-  //upload file
   selectedImg: any;
   imgUrl = '';
-
-  @ViewChild('uploadFile', {static:true}) public avatarDom!: ElementRef;
+  @ViewChild('uploadFile', {static: true}) public avatarDom!: ElementRef;
 
   uploadFileImg() {
     this.selectedImg = this.avatarDom?.nativeElement.files[0];
@@ -95,51 +87,38 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  // register
-  statusCompany = '';
-
   registerFormCompany = new FormGroup({
     'name': new FormControl(null, Validators.required),
-    'email': new FormControl('', [
-      Validators.required,
-      Validators.email
-    ]),
-    'password': new FormControl('', [
-      Validators.required,
-      Validators.minLength(3)
-    ]),
+    'email': new FormControl('', [Validators.required, Validators.email]),
+    'password': new FormControl('', [Validators.required, Validators.minLength(3)]),
     'description': new FormControl(null, Validators.required),
     'avatar': new FormControl(null, Validators.required),
   });
 
-  errorName: any = {
-    message: 'name_existed'
-  }
-
-  errorEmail: any = {
-    message: 'email_existed'
-  }
-
-
   registerCompany() {
     const signUpCompany = this.registerFormCompany.value;
     signUpCompany.avatar = this.imgUrl
-    console.log("signUpForm Value ===>",signUpCompany);
     this.authService.signUpCompany(signUpCompany).subscribe(data => {
       console.log("data ==> ", JSON.stringify(data));
       if (JSON.stringify(data) == JSON.stringify(this.errorName)) {
         this.statusCompany = 'The company name existed.'
       }
       if (JSON.stringify(data) == JSON.stringify(this.errorEmail)) {
-        this.statusCompany= 'The email existed.'
+        this.statusCompany = 'The email existed.'
       }
       if (JSON.stringify(data) == JSON.stringify(this.success)) {
-        this.statusCompany = 'Create Account Success!';
+        this.statusCompany = 'Create Account Success.';
       }
-
     }, error => {
       console.log(error)
     })
   }
 
+  reload() {
+    window.location.reload();
+  }
+
+  reset() {
+    this.statusUser = '';
+  }
 }

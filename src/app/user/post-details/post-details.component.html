@@ -6,7 +6,7 @@
       <div class="col-md-7">
         <h1 class="text-white font-weight-bold">{{post.title}}</h1>
         <div class="custom-breadcrumbs">
-          <a [routerLink]="['/user/userHome']">Home</a> <span class="mx-2 slash">/</span>
+          <a [routerLink]="['/user']">Home</a> <span class="mx-2 slash">/</span>
           <a [routerLink]="['/post/post-list']">Job</a> <span class="mx-2 slash">/</span>
           <span class="text-white"><strong>{{post.title}}</strong></span>
         </div>
@@ -21,7 +21,7 @@
       <div class="col-lg-8 mb-4 mb-lg-0">
         <div class="d-flex align-items-center">
           <div class="border p-2 d-inline-block mr-3 rounded">
-            <img src="{{company.avatar}}" alt="Image">
+            <img src="{{post.company.avatar}}" height="100px" width="100px" alt="Image">
           </div>
           <div>
             <h2>{{post.title}}</h2>
@@ -36,7 +36,7 @@
       <div class="col-lg-4">
         <div class="row">
           <div class="col-6">
-            <a [routerLink]="['/user/userHome']" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Back To Home</a>
+            <a [routerLink]="['/user']" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Back To Home</a>
           </div>
           <div class="col-6">
             <a href="#" class="btn btn-block btn-primary btn-md">Apply Now</a>
@@ -54,7 +54,7 @@
 
         <div class="row mb-5">
           <div class="col-6">
-            <a [routerLink]="['/user/userHome']" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Back To Home</a>
+            <a [routerLink]="['/user']" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Back To Home</a>
           </div>
           <div class="col-6">
             <a href="#" class="btn btn-block btn-primary btn-md">Apply Now</a>
@@ -85,7 +85,6 @@
             <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
           </div>
         </div>
-
       </div>
     </div>
   </div>

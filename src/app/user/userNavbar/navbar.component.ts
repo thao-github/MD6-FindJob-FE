@@ -20,4 +20,13 @@ export class NavbarComponent implements OnInit {
       window.location.reload();
     },1 );
   }
+
+  logOut() {
+    window.sessionStorage.removeItem('user')
+    window.sessionStorage.removeItem('token');
+    this.router.navigate(['']);
+    setTimeout(function () {
+      window.location.reload();
+    },1 );
+  }
 }

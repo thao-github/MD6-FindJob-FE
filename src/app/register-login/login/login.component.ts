@@ -11,57 +11,92 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm = new FormGroup({
-    'email': new FormControl(null, Validators.required),
+  loginFormUser = new FormGroup({
+    'email': new FormControl(null, [Validators.required, Validators.email]),
     'password': new FormControl(null, Validators.required)
   })
+
+  loginFormCompany = new FormGroup({
+    'email': new FormControl(null, [Validators.required, Validators.email]),
+    'password': new FormControl(null, Validators.required)
+  })
+
 
   constructor(private authService: AuthService,
               private router: Router) {
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
   }
 
   status: any;
-  token = '';
-  tokenInfo : any;
+  token: any;
+  tokenInfo: any;
   decodeToken = '';
-  result: any;
   isCompany!: boolean;
 
-  login() {
-    const signInForm = this.loginForm.value;
-    this.authService.login(signInForm).subscribe((data) => {
-      this.token = data.token;
-      console.log('data===>', data)
-      this.tokenInfo = this.getDecodedAccessToken(this.token);
+  loginUser() {
+    window.sessionStorage.removeItem('data');
+    window.sessionStorage.removeItem('user');
+    window.sessionStorage.removeItem('company');
+    const signInForm = this.loginFormUser.value;
 
-      this.isCompany = this.tokenInfo.isCompany;
-      if(this.isCompany) {
-        this.router.navigate(['/company'])
+    this.authService.loginUser(signInForm).subscribe((data) => {
+      this.token = data.token;
+      if (this.token === null) {
+        this.status = 'Invalid Email or Password.'
+        this.loginFormUser.reset();
       } else {
-        this.router.navigate(['/user'])
+        this.tokenInfo = this.getDecodedAccessToken(this.token);
+        this.isCompany = this.tokenInfo.isCompany;
+        if (this.isCompany) {
+          this.status = 'Unauthorized Access'
+        } else {
+          this.router.navigate(['/user'])
+        }
+        window.sessionStorage.setItem('user', JSON.stringify(this.tokenInfo));
       }
-      window.sessionStorage.setItem('data', JSON.stringify(this.tokenInfo));
     })
   }
 
   getDecodedAccessToken(token: string): any {
     try {
       return jwt_decode(token);
-    } catch(Error) {
+    } catch (Error) {
       return null;
     }
   }
 
+  loginCompany() {
+    window.sessionStorage.removeItem('data');
+    window.sessionStorage.removeItem('user');
+    window.sessionStorage.removeItem('company');
+    const signInForm = this.loginFormCompany.value;
 
-  loginUser() {
-
+    this.authService.loginCompany(signInForm).subscribe((data) => {
+      this.token = data.token;
+      if (this.token === null) {
+        this.status = 'Invalid Email or Password.'
+        this.loginFormUser.reset();
+      } else {
+        this.tokenInfo = this.getDecodedAccessToken(this.token);
+        this.isCompany = this.tokenInfo.isCompany;
+        if (this.isCompany) {
+          this.router.navigate(['/company'])
+        } else {
+          this.status = 'Unauthorized Access'
+        }
+        window.sessionStorage.setItem('company', JSON.stringify(this.tokenInfo));
+      }
+    })
   }
 
-  loginCompany() {
+  reload() {
+    window.location.reload();
+  }
 
+  reset() {
+    this.status='';
   }
 }
 

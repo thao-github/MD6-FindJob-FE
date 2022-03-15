@@ -16,21 +16,8 @@ export class CompanyInfoComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-    // @ts-ignore
-    this.companyCode = +paramMap.get('FPT13456');
-    this.company = this.findCompanyByCode(this.companyCode);
-    console.log(this.company)
-  })
-
+  ngOnInit(): void {
   }
-
-  findCompanyByCode(companyCode: string) {
-    return this.companyService.findCompanyByCode('FPT13456').subscribe((data)=>{
-      console.log(data);
-    });
-  }
-
 
 
 }

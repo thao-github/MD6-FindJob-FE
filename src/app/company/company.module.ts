@@ -10,6 +10,7 @@ import { PostCreateComponent } from './post/post-create/post-create.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { PostListComponent } from './post/post-list/post-list.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -24,12 +25,13 @@ import { PostListComponent } from './post/post-list/post-list.component';
   exports: [
     NavbarComponent
   ],
-  imports: [
-    CommonModule,
-    CompanyRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        CommonModule,
+        CompanyRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatPaginatorModule
+    ],
   bootstrap: [CompanyComponent]
 
 })

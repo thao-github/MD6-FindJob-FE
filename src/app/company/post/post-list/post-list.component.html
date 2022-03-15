@@ -19,8 +19,8 @@
       <div class="row align-items-center justify-content-center">
         <div class="col-md-12">
           <div class="mb-5 text-center">
-            <h1 class="text-white font-weight-bold">Company Name</h1>
-            <p>Company Description.</p>
+            <h1 class="text-white font-weight-bold">{{company?.name}}</h1>
+            <p>Company Description: {{company?.description}}</p>
           </div>
         </div>
       </div>
@@ -50,7 +50,8 @@
           </div>
           <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
             <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>{{post.title}}</h2>
+              <!--              modal-->
+              <h2 (click)="getPostDetail(post.id)" data-toggle="modal" data-target="#exampleModal">{{post.title}}</h2>
               <strong>Vacancy: {{post.vacancy}}</strong><br>
               <strong>Experience: {{post.experience}}</strong><br>
               <strong>Deadline: {{post.applicationDeadline}}</strong>
@@ -61,26 +62,70 @@
         </li>
       </ul>
 
-      <div class="row pagination-wrap">
-        <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
-          <span>Showing 1-7 Of 43,167 Jobs</span>
-        </div>
-        <div class="col-md-6 text-center text-md-right">
-          <div class="custom-pagination ml-auto">
-            <a href="#" class="prev">Prev</a>
-            <div class="d-inline-block">
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-            </div>
-            <a href="#" class="next">Next</a>
-          </div>
-        </div>
-      </div>
+<!--      page-->
+      <mat-paginator style="font-size: 15px"
+                     [length]="totalElements"
+                     [pageSizeOptions]="[5,10,15]"
+                     aria-label="Select page"
+                     (page)="moveNextPage($event)">
+      </mat-paginator>
     </div>
   </section>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Job Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--      body-->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <figure class="mb-5"><img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded">
+            </figure>
+            <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job
+              Description</h3>
+            <p>{{postDetail?.description}}</p>
+          </div>
+          <div class="col-lg-12">
+            <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job
+              Detail</h3>
+            <ul class="list-unstyled pl-3 mb-0">
+              <li class="mb-2"><strong class="text-black">Job Code:</strong>{{postDetail?.postCode}}</li>
+              <li class="mb-2"><strong class="text-black">Field of Activity:</strong>{{postDetail?.field?.name}}</li>
+              <li class="mb-2"><strong class="text-black">Vacancy:</strong>{{postDetail?.vacancy}}</li>
+              <li class="mb-2"><strong class="text-black">Salary:</strong>{{postDetail?.salary}}</li>
+              <li class="mb-2"><strong class="text-black">Deadline:</strong>{{postDetail?.applicationDeadline}}</li>
+              <li class="mb-2"><strong class="text-black">Location:</strong>{{postDetail?.jobLocation}}</li>
+            </ul>
+          </div>
+          <div class="col-lg-12">
+            <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Share
+            </h3>
+            <div class="px-3">
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--      body-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 

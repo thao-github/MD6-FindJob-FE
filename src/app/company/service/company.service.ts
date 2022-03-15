@@ -8,13 +8,13 @@ import {Company} from "../model/company";
   providedIn: 'root'
 })
 export class CompanyService {
-  API_URL = environment.API_LOCAL;
+  API_URL = environment.API_LOCAL + `company`;
 
   constructor(private http: HttpClient) {
   }
 
-  findCompanyByCode(companyCode: string): Observable<any> {
-    return this.http.get<any>( this.API_URL+ `/company/FPT13456`);
+  findCompanyById(id: number): Observable<any> {
+    return this.http.get<any>( this.API_URL+ `/${id}`);
   }
 
   editCompanyInfo(company: Company): Observable<any>{

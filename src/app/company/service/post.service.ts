@@ -13,8 +13,9 @@ export class PostService {
   constructor(private http: HttpClient) {
   }
 
-  getAllPost():Observable<any>{
-    return this.http.get<any>(this.API_COMPANY + `/post`)
+  getAllPost(nextPage: any){
+    const params = nextPage;
+    return this.http.get(this.API_COMPANY+`/post`, {params})
   }
 
   getAllField():Observable<any>{

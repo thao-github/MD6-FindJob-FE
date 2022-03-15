@@ -1,27 +1,28 @@
+import {Field} from "../../company/model/Field";
+import {Company} from "../../company/model/company";
 
 export class Post{
   private _id!: number;
   private _title!: string;
+  private _position!: string
   private _salary!: string;
-  // vị trí tuyển dụng
   private _jobLocation!: string;
-  // kinh nghiệm
   private _experience!: number;
-  // Loại công việc
   private _jobType!: string;
-  // Ngày hết hạn
   private _applicationDeadline!: string;
   private _description!: string;
-  // Số lượng tuyển dụng
   private _vacancy!: number;
   private _gender!: string;
   private _postCode!: string;
   private _status!: boolean;
+  private _field!: Field;
+  private _company!: Company;
 
 
-  constructor(id: number, title: string, salary: string, jobLocation: string, experience: number, jobType: string, applicationDeadline: string, description: string, vacancy: number, gender: string, postCode: string, status: boolean) {
+  constructor(id: number, title: string, position: string, salary: string, jobLocation: string, experience: number, jobType: string, applicationDeadline: string, description: string, vacancy: number, gender: string, postCode: string, status: boolean, field: Field, company: Company) {
     this._id = id;
     this._title = title;
+    this._position = position;
     this._salary = salary;
     this._jobLocation = jobLocation;
     this._experience = experience;
@@ -32,8 +33,9 @@ export class Post{
     this._gender = gender;
     this._postCode = postCode;
     this._status = status;
+    this._field = field;
+    this._company = company;
   }
-
 
   get id(): number {
     return this._id;
@@ -49,6 +51,14 @@ export class Post{
 
   set title(value: string) {
     this._title = value;
+  }
+
+  get position(): string {
+    return this._position;
+  }
+
+  set position(value: string) {
+    this._position = value;
   }
 
   get salary(): string {
@@ -129,5 +139,21 @@ export class Post{
 
   set status(value: boolean) {
     this._status = value;
+  }
+
+  get field(): Field {
+    return this._field;
+  }
+
+  set field(value: Field) {
+    this._field = value;
+  }
+
+  get company(): Company {
+    return this._company;
+  }
+
+  set company(value: Company) {
+    this._company = value;
   }
 }

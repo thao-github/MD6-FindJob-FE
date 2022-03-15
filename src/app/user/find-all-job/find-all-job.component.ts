@@ -4,6 +4,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {PostService} from "../service/postService";
 import {ActivatedRoute, Router} from "@angular/router";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-find-all-job',
@@ -12,34 +13,35 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class FindAllJobComponent implements OnInit {
 
+  totalElements: number = 0;
+
   posts: Post[] = [];
 
-  formCRUD_User!: FormGroup;
 
   constructor(private http: HttpClient, private postService: PostService) {
   }
 
 
   ngOnInit(): void {
-    this.formCRUD_User = new FormGroup({
-      id: new FormControl(0),
-      title: new FormControl(""),
-      salary: new FormControl(""),
-      jobLocation: new FormControl(""),
-      experience: new FormControl(0),
-      jobType: new FormControl(''),
-      applicationDeadline: new FormControl(""),
-      description: new FormControl(""),
-      vacancy: new FormControl(0),
-      gender: new FormControl(""),
-      postCode: new FormControl(""),
-      status: new FormControl(true)
-    })
-    this.findAllPost();
+    this.pagePost({page:0, size:5})
   }
 
-  findAllPost(){
-    this.postService.findAllPost().subscribe(data => {this.posts = data })
+  pagePost(nextPage: any){
+    this.postService.pagePost(nextPage).subscribe(data => {
+      // @ts-ignore
+      this.posts = data['content']
+      // @ts-ignore
+      this.totalElements = data['totalElements']
+    })
+  }
+
+  nextPage(event: PageEvent){
+    const req = {};
+    // @ts-ignore
+    req['page'] = event.pageIndex.toString();
+    // @ts-ignore
+    req['size'] = event.pageSize.toString();
+    this.pagePost(req);
   }
 
 }

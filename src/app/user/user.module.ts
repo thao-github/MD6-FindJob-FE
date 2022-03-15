@@ -12,6 +12,7 @@ import {FooterComponent} from "./userFooter/footer.component";
 import {UserDetailComponent} from "./user-details/userdetail.component";
 import {UserEditComponent} from "./user-edit/user-edit.component";
 import {CompanyModule} from "../company/company.module";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -31,10 +32,11 @@ import {CompanyModule} from "../company/company.module";
         FormsModule,
         RouterModule,
         ReactiveFormsModule,
-        CompanyModule
+        CompanyModule,
+        MatPaginatorModule
     ],
   providers: [],
   bootstrap: [UserComponent]
 })
 
-export class UserModule{ }
+export class UserModule{}

@@ -21,6 +21,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {environment} from "../environments/environment.prod";
 import {CompanyGuard} from "./user/service/company.guard";
 import {UserGuard} from "./user/service/user.guard";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -33,21 +34,22 @@ import {UserGuard} from "./user/service/user.guard";
     FooterComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSliderModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSliderModule,
+        HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireStorageModule,
+        MatPaginatorModule
+    ],
   providers: [CompanyGuard,UserGuard],
   bootstrap: [AppComponent]
 })

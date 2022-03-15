@@ -6,7 +6,7 @@
       <div class="col-md-7">
         <h1 class="text-white font-weight-bold">User Profile</h1>
         <div class="custom-breadcrumbs">
-          <a [routerLink]="['/home']">Home</a> <span class="mx-2 slash">/</span>
+          <a [routerLink]="['/user']">Home</a> <span class="mx-2 slash">/</span>
           <span class="text-white"><strong>User Profile</strong></span>
         </div>
       </div>
@@ -47,22 +47,12 @@
           <p> {{user.address}}</p>
         </div>
 
-        <div class="mb-5">
-          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Description: </h3>
-          <p> {{user.description}}</p>
-        </div>
-
-        <div class="mb-5">
-          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Facebook: </h3>
-          <p> {{user.facebook}}</p>
-        </div>
-
         <div class="row mb-5">
           <div class="col-6">
             <a  [routerLink]="['/user/user-edit', user.id]" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Edit Profile </a>
           </div>
           <div class="col-6">
-            <a [routerLink]="['/home']" class="btn btn-block btn-primary btn-md">Back to home</a>
+            <a [routerLink]="['/user']" class="btn btn-block btn-primary btn-md">Back to home</a>
           </div>
         </div>
       </div>

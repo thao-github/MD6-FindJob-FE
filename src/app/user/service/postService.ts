@@ -16,8 +16,10 @@ export class PostService{
     return this.http.get<any>("http://localhost:8080/post/" + id);
   }
 
-  findAllPost(): Observable<Post[]> {
-    return this.http.get<Post[]>('http://localhost:8080/post/findAllPost')
+
+  pagePost(nextPage: any){
+    const params = nextPage;
+    return this.http.get('http://localhost:8080/post/findAllPost', {params})
   }
 
 }

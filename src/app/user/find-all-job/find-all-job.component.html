@@ -28,26 +28,24 @@
             <div class="job-listing-meta">
               <span class="badge badge-danger">{{p.jobType}}</span>
             </div>
+            <div>
+              <button type="button" class="btn btn-danger">Apply</button>
+            </div>
           </div>
         </li>
       </ul>
 
       <div class="row pagination-wrap">
         <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
-          <span>Showing 1-7 Of 100 Jobs</span>
+          <span>Showing 1-5 Jobs</span>
         </div>
-        <div class="col-md-6 text-center text-md-right">
-          <div class="custom-pagination ml-auto">
-            <a href="#" class="prev">Prev</a>
-            <div class="d-inline-block">
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-            </div>
-            <a href="#" class="next">Next</a>
-          </div>
-        </div>
+
+        <mat-paginator [length]="totalElements"
+        [pageSizeOptions]="[5,10,15]"
+        aria-label="Select page"
+        (page)="nextPage($event)">
+        </mat-paginator>
+
       </div>
 
     </div>

@@ -19,14 +19,11 @@ export class UserEditComponent implements OnInit {
   userForm = new FormGroup({
     'id': new FormControl(null),
     'name': new FormControl(null, Validators.required),
-    // 'username': new FormControl(null, Validators.required),
     'email': new FormControl(null, Validators.required),
     'password': new FormControl(null, Validators.required),
     'cv': new FormControl(null, Validators.required),
     'phoneNumber': new FormControl(null, Validators.required),
-    'description': new FormControl(null, Validators.required),
     'address': new FormControl(null, Validators.required),
-    'facebook': new FormControl(null, Validators.required),
     'avatar': new FormControl(null, Validators.required),
   })
   id!: number;
@@ -55,14 +52,11 @@ export class UserEditComponent implements OnInit {
       this.userForm = new FormGroup({
         'id': new FormControl(user.id),
         'name': new FormControl(user.name),
-        // 'username': new FormControl(user.username),
         'email': new FormControl(user.email),
         'password': new FormControl(user.password),
         'cv': new FormControl(user.cv),
         'phoneNumber': new FormControl(user.phoneNumber),
-        'description': new FormControl(user.description),
         'address': new FormControl(user.address),
-        'facebook': new FormControl(user.facebook),
         'avatar': new FormControl(user.avatar),
       })
     }, error => {
@@ -74,6 +68,7 @@ export class UserEditComponent implements OnInit {
     const user = this.userForm.value;
     this.userService.updateUser(id, user).subscribe((user) => {
       this.status = "User UPDATED."
+      alert("update sucess ^_^")
     }, error => {
       console.log(error)
     })
@@ -104,7 +99,6 @@ export class UserEditComponent implements OnInit {
   uploadFileImg() {
     this.selectedImage = this.imageDom?.nativeElement.files[0];
     this.submit();
-
   }
 }
 

@@ -1,6 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CompanyService} from "../service/company.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
 import {Company} from "../model/company";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {finalize} from "rxjs";
@@ -14,17 +13,21 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
 export class CompanyInfoComponent implements OnInit {
   company!: Company;
   id!: number;
-  status: any;
   companyForm = new FormGroup({
     'id': new FormControl(null, Validators.required),
     'companyCode': new FormControl(null, Validators.required),
+    'name': new FormControl(null, Validators.required),
     'fieldOfActivity': new FormControl(null, Validators.required),
     'numberOfEmployees': new FormControl(null, Validators.required),
     'phoneNumber': new FormControl(null, Validators.required),
     'address': new FormControl(null, Validators.required),
     'branch': new FormControl(null, Validators.required),
+    'email': new FormControl(null, Validators.required),
     'avatar': new FormControl(null, Validators.required),
     'description': new FormControl(null, Validators.required),
+    'website': new FormControl(null, Validators.required),
+    'facebook': new FormControl(null, Validators.required),
+    'mapLink': new FormControl(null, Validators.required),
   })
 
   constructor(private companyService: CompanyService,
@@ -41,13 +44,18 @@ export class CompanyInfoComponent implements OnInit {
       this.companyForm = new FormGroup({
         'id': new FormControl(this.company.id),
         'companyCode': new FormControl(this.company.companyCode),
+        'name': new FormControl(this.company.name),
         'fieldOfActivity': new FormControl(this.company.fieldOfActivity),
         'numberOfEmployees': new FormControl(this.company.numberOfEmployees),
         'phoneNumber': new FormControl(this.company.phoneNumber),
         'address': new FormControl(this.company.address),
+        'email': new FormControl(this.company.email),
         'branch': new FormControl(this.company.branch),
         'avatar': new FormControl(this.company.avatar),
         'description': new FormControl(this.company.description),
+        'website': new FormControl(this.company.website),
+        'facebook': new FormControl(this.company.facebook),
+        'mapLink': new FormControl(this.company.mapLink),
       })
     })
   }
@@ -76,11 +84,16 @@ export class CompanyInfoComponent implements OnInit {
 
 
   editCompanyInfo() {
+    this.companyForm.get('avatar')?.setValue(this.imgUrl);
     const company = this.companyForm.value;
+    console.log('company--->', this.company)
     this.companyService.editCompanyInfo(company).subscribe(()=>{
-      this.status = 'Edit SUCCESS.'
+      alert('Edit SUCCESS.');
+      window.location.reload();
     }, error => {
       console.log(error)
     })
   }
+
+
 }

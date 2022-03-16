@@ -6,7 +6,7 @@ export class Company{
   private _description!: string;
   private _avatar!: string;
   private _address!: string;
-  private _cv!: string;
+  private _email!: string;
   private _numberOfEmployees!: number;
   private _branch!: string;
   private _fieldOfActivity!: string;
@@ -15,7 +15,7 @@ export class Company{
   private _mapLink!: string;
 
 
-  constructor(id: number, name: string, companyCode: string, phoneNumber: string, description: string, avatar: string, address: string, cv: string, numberOfEmployees: number, branch: string, fieldOfActivity: string, website: string, facebook: string, mapLink: string) {
+  constructor(id: number, name: string, companyCode: string, phoneNumber: string, description: string, avatar: string, address: string, email: string, numberOfEmployees: number, branch: string, fieldOfActivity: string, website: string, facebook: string, mapLink: string) {
     this._id = id;
     this._name = name;
     this._companyCode = companyCode;
@@ -23,7 +23,7 @@ export class Company{
     this._description = description;
     this._avatar = avatar;
     this._address = address;
-    this._cv = cv;
+    this._email = email;
     this._numberOfEmployees = numberOfEmployees;
     this._branch = branch;
     this._fieldOfActivity = fieldOfActivity;
@@ -89,12 +89,12 @@ export class Company{
     this._address = value;
   }
 
-  get cv(): string {
-    return this._cv;
+  get email(): string {
+    return this._email;
   }
 
-  set cv(value: string) {
-    this._cv = value;
+  set email(value: string) {
+    this._email = value;
   }
 
   get numberOfEmployees(): number {

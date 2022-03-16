@@ -50,7 +50,7 @@
             <li class="mb-2"><strong class="text-black">Number of Employees:</strong> {{company?.numberOfEmployees}}
             </li>
             <li class="mb-2"><strong class="text-black">Phone:</strong> {{company?.phoneNumber}}</li>
-            <li class="mb-2"><strong class="text-black">Branch:</strong> {{company?.branch}}</li>
+            <li class="mb-2"><strong class="text-black">Branch:</strong> {{company?.email}}</li>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               Edit
@@ -85,7 +85,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <p style="color: darkgreen">{{status}}</p>
       <div class="modal-body">
 
         <!-- START EDIT FORM-->
@@ -95,6 +94,13 @@
             <div class="col-md-12" readonly>
               <label class="text-black" for="id">Id</label>
               <input formControlName="id" type="text" id="id" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group" hidden>
+            <div class="col-md-12" readonly>
+              <label class="text-black" for="name">Name</label>
+              <input formControlName="name" type="text" id="name" class="form-control">
             </div>
           </div>
 
@@ -133,6 +139,13 @@
             </div>
           </div>
 
+          <div class="row form-group" hidden>
+            <div class="col-md-12">
+              <label class="text-black" for="email">Email: </label>
+              <input formControlName="email" type="text" id="email" class="form-control">
+            </div>
+          </div>
+
           <div class="row form-group">
             <div class="col-md-12">
               <label class="text-black" for="branch">Branch: </label>
@@ -154,6 +167,27 @@
             <div class="col-md-12">
               <label class="text-black" for="description">Description: </label>
               <input formControlName="description" type="text" id="description" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="website">Website: </label>
+              <input formControlName="website" type="text" id="website" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="facebook">Facebook: </label>
+              <input formControlName="facebook" type="text" id="facebook" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="mapLink">Map Link: </label>
+              <input formControlName="mapLink" type="text" id="mapLink" class="form-control">
             </div>
           </div>
 

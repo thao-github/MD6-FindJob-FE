@@ -1554,7 +1554,8 @@ h1, h2, h3, h4 {
 .form-control:hover, .form-control:active, .form-control:focus {
   outline: none;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important; }
+  box-shadow: none !important;
+}
 
 .form-control:active, .form-control:focus {
   border-color: #89ba16 !important; }

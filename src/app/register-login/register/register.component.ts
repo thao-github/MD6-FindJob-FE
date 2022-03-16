@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
         }
         if (JSON.stringify(data) == JSON.stringify(this.success)) {
           this.statusConfirmPassword = '';
-          this.statusUser = 'Create Account Success.'
+          alert('Create Account Success.') ;
         }
       })
     } else {
@@ -107,7 +107,7 @@ export class RegisterComponent implements OnInit {
         this.statusCompany = 'The email existed.'
       }
       if (JSON.stringify(data) == JSON.stringify(this.success)) {
-        this.statusCompany = 'Create Account Success.';
+        alert('Create Account Success.');
       }
     }, error => {
       console.log(error)

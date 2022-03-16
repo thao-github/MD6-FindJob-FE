@@ -14,7 +14,6 @@ import {Company} from "../../model/company";
 export class PostCreateComponent implements OnInit {
   fields: Field[] = [];
   post!: Post;
-  status: any;
   id!: number;
 
   postForm = new FormGroup({
@@ -60,7 +59,8 @@ export class PostCreateComponent implements OnInit {
       console.log('post --->', post)
       this.postService.createPost(post).subscribe((data) =>{
         this.post = data;
-        this.status='Create Post SUCCESS.';
+        alert('Create Post SUCCESS.');
+        window.location.reload();
       }, error => {
         console.log(error)
       })

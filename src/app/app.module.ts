@@ -22,6 +22,7 @@ import {environment} from "../environments/environment.prod";
 import {CompanyGuard} from "./user/service/company.guard";
 import {UserGuard} from "./user/service/user.guard";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     LoginComponent,
     NavbarComponent,
     FooterComponent,
+    AdminComponent,
 
   ],
     imports: [

@@ -12,7 +12,8 @@ const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'company', loadChildren: () => import ('./company/company.module').then(module => module.CompanyModule),canActivate:[CompanyGuard]},
-  {path:'user', loadChildren: () => import ('./user/user.module').then(module => module.UserModule),canActivate:[UserGuard]}
+  {path:'user', loadChildren: () => import ('./user/user.module').then(module => module.UserModule),canActivate:[UserGuard]},
+  {path:'admin', loadChildren: () => import ('./admin/admin.module').then(module => module.AdminModule)}
 ];
 
 @NgModule({

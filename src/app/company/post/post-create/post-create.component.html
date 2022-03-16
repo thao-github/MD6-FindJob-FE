@@ -29,8 +29,7 @@
           <div class="form-group">
             <label for="field">Field</label>
             <select formControlName="field" class="selectpicker border rounded" id="field" data-style="btn-black"
-                    data-width="100%"
-                    data-live-search="true" title="Select">
+                    data-width="100%">
               <option style="color: darkred" *ngFor="let field of fields" [ngValue]="field">{{field.name}}</option>
             </select>
           </div>

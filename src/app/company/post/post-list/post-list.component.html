@@ -53,7 +53,7 @@
               <!--              modal-->
               <h2 (click)="getPostDetail(post.id)" data-toggle="modal" data-target="#exampleModal">{{post.title}}</h2>
               <strong>Vacancy: {{post.vacancy}}</strong><br>
-              <strong>Experience: {{post.experience}}</strong><br>
+              <strong>Experience: {{post.experience}} year</strong><br>
               <strong>Deadline: {{post.applicationDeadline}}</strong>
             </div>
           </div>
@@ -100,7 +100,7 @@
               <li class="mb-2"><strong class="text-black">Job Code: </strong>{{postDetail?.postCode}}</li>
               <li class="mb-2"><strong class="text-black">Field of Activity: </strong>{{postDetail?.field?.name}}</li>
               <li class="mb-2"><strong class="text-black">Vacancy: </strong>{{postDetail?.vacancy}}</li>
-              <li class="mb-2"><strong class="text-black">Salary: </strong>{{postDetail?.salary}}</li>
+              <li class="mb-2"><strong class="text-black">Salary: </strong>{{postDetail?.minSalary}} - {{postDetail?.maxSalary}} $</li>
               <li class="mb-2"><strong class="text-black">Deadline: </strong>{{postDetail?.applicationDeadline}}</li>
               <li class="mb-2"><strong class="text-black">Location: </strong>{{postDetail?.jobLocation}}</li>
             </ul>

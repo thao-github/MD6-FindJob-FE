@@ -6,7 +6,8 @@ export class Post {
   private _title!: string
   private _postCode!: string
   private _position!: string
-  private _salary!: string
+  private _minSalary!: number
+  private _maxSalary!: number
   private _jobLocation!: string
   private _experience!: number
   private _jobType!: boolean
@@ -18,12 +19,14 @@ export class Post {
   private _field!: Field;
   private _company!: Company;
 
-  constructor(id: number, title: string, postCode: string, position: string, salary: string, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
+
+  constructor(id: number, title: string, postCode: string, position: string, minSalary: number, maxSalary: number, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
     this._id = id;
     this._title = title;
     this._postCode = postCode;
     this._position = position;
-    this._salary = salary;
+    this._minSalary = minSalary;
+    this._maxSalary = maxSalary;
     this._jobLocation = jobLocation;
     this._experience = experience;
     this._jobType = jobType;
@@ -69,12 +72,20 @@ export class Post {
     this._position = value;
   }
 
-  get salary(): string {
-    return this._salary;
+  get minSalary(): number {
+    return this._minSalary;
   }
 
-  set salary(value: string) {
-    this._salary = value;
+  set minSalary(value: number) {
+    this._minSalary = value;
+  }
+
+  get maxSalary(): number {
+    return this._maxSalary;
+  }
+
+  set maxSalary(value: number) {
+    this._maxSalary = value;
   }
 
   get jobLocation(): string {
@@ -92,7 +103,6 @@ export class Post {
   set experience(value: number) {
     this._experience = value;
   }
-
 
   get jobType(): boolean {
     return this._jobType;

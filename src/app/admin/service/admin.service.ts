@@ -16,6 +16,10 @@ export class AdminService {
     return this.http.put( this.API_URL + "admin/confirmCompany/" + company.id, company);
   }
 
+  unConfirmCompany(company: Company): Observable<any> {
+    return this.http.put( this.API_URL + "admin/unConfirmCompany/" + company.id, company);
+  }
+
   getAllCompany(): Observable<any> {
     return this.http.get(this.API_URL + "company")
   }

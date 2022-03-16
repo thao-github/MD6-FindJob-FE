@@ -6,6 +6,12 @@ html {
   margin: 0px;
   height: 100%;
 }
+
+.logOut {
+  margin-left: 45%;
+  padding-bottom: unset;
+  background-color: wheat;
+}
 .wrapper {
   height: auto;
   min-height: 100%;

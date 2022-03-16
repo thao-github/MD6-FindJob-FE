@@ -34,24 +34,35 @@ export class LoginComponent implements OnInit {
   tokenInfo: any;
   decodeToken = '';
   userId: any;
+  role: any;
   companyId: any;
+  isConfirm: any;
 
   loginUser() {
     window.sessionStorage.clear();
     const signInForm = this.loginFormUser.value;
     this.authService.loginUser(signInForm).subscribe((data) => {
       this.token = data.token;
+
       if (this.token === null) {
         this.status = 'Invalid Email or Password.'
         this.loginFormUser.reset();
       } else {
         this.tokenInfo = this.getDecodedAccessToken(this.token);
+        window.sessionStorage.setItem('token', JSON.stringify(this.tokenInfo));
+        console.log("this.tokenInfo ==>", this.tokenInfo)
         this.userId = this.tokenInfo.USER_ID;
-        if (this.userId) {
-          this.router.navigate(['/user']);
-          window.sessionStorage.setItem('user', this.userId);
-        } else {
-          this.status = 'Unauthorized Access'
+        this.role = this.tokenInfo.ROLE;
+        console.log("ROLE ==>",this.role);
+        for (let i = 0; i < this.role.length; i++) {
+          if (this.role[i].name == "USER") {
+            this.router.navigate(['/user']);
+            window.sessionStorage.setItem('user', this.userId);
+          } else if (this.role[i].name == "ADMIN") {
+            this.router.navigate(['/admin/home']);
+          } else {
+            this.status = 'Unauthorized Access'
+          }
         }
       }
     })
@@ -68,6 +79,7 @@ export class LoginComponent implements OnInit {
   loginCompany() {
     window.sessionStorage.clear();
     const signInForm = this.loginFormCompany.value;
+
     this.authService.loginCompany(signInForm).subscribe((data) => {
       this.token = data.token;
       if (this.token === null) {
@@ -75,8 +87,12 @@ export class LoginComponent implements OnInit {
         this.loginFormUser.reset();
       } else {
         this.tokenInfo = this.getDecodedAccessToken(this.token);
+        window.sessionStorage.setItem('token', JSON.stringify(this.tokenInfo));
+        console.log("this.tokenInfo ==>", this.tokenInfo)
         this.companyId = this.tokenInfo.COMPANY_ID;
-        if (this.companyId) {
+        this.isConfirm = this.tokenInfo.status;
+        console.log(this.isConfirm);
+        if (this.companyId && this.isConfirm) {
           this.router.navigate(['/company']);
           window.sessionStorage.setItem('company', this.companyId);
         } else {

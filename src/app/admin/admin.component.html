@@ -1,8 +1,8 @@
 <div class="thang">
   <div class="wrapper">
     <div class="side-menu">
-      <div class="logo">
-        wiplo
+      <div class="logo" routerLink="/user">
+        JOBBOARD
       </div>
       <div class="menu">
         <ul>
@@ -28,6 +28,10 @@
         <div class="search"><i class="fa fa-search" aria-hidden="true"></i> <input type='text' class='src'
                                                                                    placeholder='Search for cards...'/>
         </div>
+        <div class="ml-auto">
+          <a style="color:#fff;" (click)="logOut()" class="btn btn-primary d-lg-inline-block logOut"><span>
+          </span>Log out</a>
+        </div>
       </div>
       <div class="main-section">
         <div class="section-title">Business is waiting for confirmation</div>
@@ -47,7 +51,8 @@
               <tr>
                 <td class="text-nowrap align-middle">{{c.email}}</td>
                 <td class="text-nowrap align-middle"><span>{{c.name}}</span></td>
-                <td class="text-nowrap align-middle"><span>{{c.status}}</span></td>
+                <td class="text-nowrap align-middle" style="color: #89ba16" *ngIf="c.status"><span>Confirmed</span></td>
+                <td class="text-nowrap align-middle" style="color: darkred" *ngIf="!c.status"><span>Awaiting confirmation</span></td>
                 <td class="text-center align-middle">
                   <div class="btn-group align-top">
                     <button (click)="confirmCompany(c)" class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal"
@@ -57,7 +62,8 @@
                 </td>
                 <td class="text-center align-middle">
                   <div class="btn-group align-top">
-                    <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i>
+                    <button (click)="unConfirmCompany(c)" class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal"
+                            data-target="#user-form-modal">Un Confirm
                     </button>
                   </div>
                 </td>

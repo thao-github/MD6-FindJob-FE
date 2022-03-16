@@ -4,9 +4,9 @@ import {CanActivate, Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class UserGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
-  constructor(private router:Router) {
+  constructor(private router:Router,) {
   }
 
   canActivate():boolean {
@@ -14,11 +14,10 @@ export class UserGuard implements CanActivate {
     let roles = JSON.parse(window.sessionStorage.getItem("token")).ROLE;
     // @ts-ignore
     for (const role of roles) {
-      if(role.name == "USER"){
+      if(role.name == "ADMIN"){
         return true;
       }
     }
     return false;
-
   }
 }

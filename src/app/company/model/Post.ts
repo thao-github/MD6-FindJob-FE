@@ -18,7 +18,6 @@ export class Post {
   private _field!: Field;
   private _company!: Company;
 
-
   constructor(id: number, title: string, postCode: string, position: string, salary: string, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
     this._id = id;
     this._title = title;
@@ -93,6 +92,7 @@ export class Post {
   set experience(value: number) {
     this._experience = value;
   }
+
 
   get jobType(): boolean {
     return this._jobType;

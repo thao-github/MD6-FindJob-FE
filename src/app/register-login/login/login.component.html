@@ -12,14 +12,14 @@
     </div>
   </section>
 
-  <nav>
+  <nav class="margin-custom">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#login-user" role="tab" aria-controls="nav-home" aria-selected="true" (click)="reload()">User</a>
       <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#login-company" role="tab" aria-controls="nav-profile" aria-selected="false" (click)="reset()">Company</a>
     </div>
 
   </nav>
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content margin-custom1" id="nav-tabContent">
     <div class="tab-pane fade show active" id="login-user" role="tabpanel" aria-labelledby="nav-home-tab">
       <div class="col-lg-6 mb-5 mb-lg-0"><br>
         <p style="font-size: 18px">Please fill in this form to log in.</p>
@@ -85,6 +85,7 @@
               <input type="submit" value="Login" class="btn btn-primary btn-md text-white">
             </div>
           </div>
+          <p>Register an account? <a style="color: darkblue" routerLink="/register" > Register</a>.</p>
         </form>
         <!--END LOGIN FORM-->
 
@@ -92,6 +93,7 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>
 
 
 

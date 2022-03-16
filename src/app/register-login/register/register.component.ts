@@ -4,6 +4,7 @@ import {AuthService} from "../../service/auth.service";
 import {SignUpFormUser} from "../../model/SignUpFormUser";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -35,7 +36,8 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private authService: AuthService,
-              private storage: AngularFireStorage) {
+              private storage: AngularFireStorage,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -55,7 +57,8 @@ export class RegisterComponent implements OnInit {
         }
         if (JSON.stringify(data) == JSON.stringify(this.success)) {
           this.statusConfirmPassword = '';
-          alert('Create Account Success.') ;
+          alert('Create Account SUCCESS.') ;
+          this.router.navigate(['/login'])
         }
       })
     } else {
@@ -107,7 +110,9 @@ export class RegisterComponent implements OnInit {
         this.statusCompany = 'The email existed.'
       }
       if (JSON.stringify(data) == JSON.stringify(this.success)) {
-        alert('Create Account Success.');
+        alert('Create Account SUCCESS.') ;
+        this.router.navigate(['/login'])
+
       }
     }, error => {
       console.log(error)

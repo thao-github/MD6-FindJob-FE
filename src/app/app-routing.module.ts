@@ -5,6 +5,7 @@ import {RegisterComponent} from "./register-login/register/register.component";
 import {LoginComponent} from "./register-login/login/login.component";
 import {CompanyGuard} from "./user/service/company.guard";
 import {UserGuard} from "./user/service/user.guard";
+import {AdminGuard} from "./user/service/admin.guard";
 
 
 const routes: Routes = [
@@ -12,8 +13,8 @@ const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'company', loadChildren: () => import ('./company/company.module').then(module => module.CompanyModule),canActivate:[CompanyGuard]},
-  {path:'user', loadChildren: () => import ('./user/user.module').then(module => module.UserModule),canActivate:[UserGuard]},
-  {path:'admin', loadChildren: () => import ('./admin/admin.module').then(module => module.AdminModule)}
+  {path:'user', loadChildren: () => import ('./user/user.module').then(module => module.UserModule),canActivate:[UserGuard, AdminGuard]},
+  {path:'admin', loadChildren: () => import ('./admin/admin.module').then(module => module.AdminModule),canActivate:[AdminGuard]}
 ];
 
 @NgModule({

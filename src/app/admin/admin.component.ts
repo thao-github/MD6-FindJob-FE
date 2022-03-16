@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminService} from "./service/admin.service";
 import {Company} from "../company/model/company";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   listCompany!: Company[];
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllCompany();
@@ -27,5 +28,21 @@ export class AdminComponent implements OnInit {
     this.adminService.confirmCompany(company).subscribe(() => {
       this.getAllCompany();
     })
+  }
+
+  unConfirmCompany(company: Company) {
+    this.adminService.unConfirmCompany(company).subscribe(() => {
+      this.getAllCompany();
+    })
+  }
+
+  logOut() {
+    window.sessionStorage.removeItem('company')
+    window.sessionStorage.removeItem('token');
+    window.sessionStorage.removeItem('user');
+    this.router.navigate(['']);
+    setTimeout(function () {
+      window.location.reload();
+    },1 );
   }
 }

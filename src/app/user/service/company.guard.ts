@@ -10,7 +10,7 @@ export class CompanyGuard implements CanActivate {
   }
   canActivate():boolean  {
     // @ts-ignore
-    if(JSON.parse(sessionStorage.getItem("company")).isCompany ){
+    if((!JSON.parse(sessionStorage.getItem("company")).isCompany)){
       return true;
     }else {
       this.router.navigate(["login"]);

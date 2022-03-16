@@ -8,14 +8,17 @@ export class UserGuard implements CanActivate {
 
   constructor(private router:Router) {
   }
-  canActivate():boolean  {
+
+  canActivate():boolean {
     // @ts-ignore
-    if(!JSON.parse(sessionStorage.getItem("user")).isCompany){
-      return true;
-    }else {
-      this.router.navigate(["login"]);
-      return false;
+    let roles = JSON.parse(window.sessionStorage.getItem("token")).ROLE;
+    // @ts-ignore
+    for (const role of roles) {
+      if(role.name == "USER"){
+        return true;
+      }
     }
+    return false;
 
   }
 }

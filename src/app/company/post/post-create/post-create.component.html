@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1 class="text-white font-weight-bold">Edit Post</h1>
+        <h1 class="text-white font-weight-bold">Create Post</h1>
       </div>
     </div>
   </div>
@@ -17,83 +17,89 @@
 
         <!--        CREATE FORM-->
         <form [formGroup]="postForm" (ngSubmit)="createPost()">
-          <h3 class="text-black mb-5 border-bottom pb-2">Job Details</h3>
+          <h1 class="text-black mb-5 border-bottom pb-2">Job Details</h1>
 
           <div class="form-group">
-            <label for="job-title">Job Title</label>
+            <label for="job-title">Job Title (*)</label>
             <input formControlName="title" type="text" class="form-control" id="job-title"
                    placeholder="Java Web Designer">
-            <small *ngIf="postForm.controls['title'].hasError('required') && postForm.controls['title'].touched">Job Title required.</small>
+            <small *ngIf="postForm.controls['title'].hasError('required') && postForm.controls['title'].touched">Job
+              Title required.</small>
           </div>
 
           <div class="form-group">
-            <label for="field">Field</label>
-            <select formControlName="field" class="selectpicker border rounded" id="field" data-style="btn-black"
-                    data-width="100%"
-                    data-live-search="true" title="Select">
+            <label for="field">Field </label>
+            <select formControlName="field" class="form-control" id="field">
               <option *ngFor="let field of fields" [ngValue]="field">{{field.name}}</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="location">Location</label>
+            <label for="location">Location (*)</label>
             <input formControlName="jobLocation" type="text" class="form-control" id="location" placeholder="Hanoi">
-            <small *ngIf="postForm.controls['jobLocation'].hasError('required') && postForm.controls['jobLocation'].touched">Job Location required.</small>
+            <small
+              *ngIf="postForm.controls['jobLocation'].hasError('required') && postForm.controls['jobLocation'].touched">Job
+              Location required.</small>
           </div>
 
           <div class="form-group">
-            <label for="experience">Experience</label>
-            <input formControlName="experience" type="text" class="form-control" id="experience"
+            <label for="experience">Experience (*)</label>
+            <input formControlName="experience" type="number" class="form-control" id="experience"
                    placeholder="1-2 years">
-            <small *ngIf="postForm.controls['experience'].hasError('required') && postForm.controls['experience'].touched">Experience required.</small>
+            <small *ngIf="postForm.controls['experience'].hasError('required') && postForm.controls['experience'].touched">Experience
+              required.</small>
           </div>
 
           <div class="form-group">
-            <label for="salary">Salary</label>
-            <select formControlName="salary" class="selectpicker border rounded" id="salary" data-style="btn-black"
-                    data-width="100%"
-                    data-live-search="true" title="Select">
-              <option>500 - 1000$</option>
-              <option>1000 - 2500$</option>
-              <option>2500 - 5000$</option>
+            <label for="salary">Salary (*)</label>
+            <select formControlName="salary" class="form-control" id="salary">
+              <option>500-1000$</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="job-type">Job Type</label>
-            <input formControlName="jobType" type="text" class="form-control" id="job-type"
-                   placeholder="true(Full-time)/false(Part-time)">
-            <small *ngIf="postForm.controls['jobType'].hasError('required') && postForm.controls['jobType'].touched">Job Type required.</small>
+            <label for="job-type">Job Type (*)</label>
+            <select formControlName="jobType" class="form-control" id="job-type">
+              <option>Full time</option>
+              <option>Part time</option>
+            </select>
           </div>
 
           <div class="form-group">
-            <label for="position">Job Position</label>
+            <label for="position">Job Position (*)</label>
             <input formControlName="position" type="text" class="form-control" id="position"
                    placeholder="Fresher/Junior/Senior">
-            <small *ngIf="postForm.controls['position'].hasError('required') && postForm.controls['position'].touched">Job Position required.</small>
+            <small *ngIf="postForm.controls['position'].hasError('required') && postForm.controls['position'].touched">Job
+              Position required.</small>
           </div>
 
           <div class="form-group">
-            <label for="job-description">Job Description</label>
+            <label for="job-description">Job Description (*)</label>
             <textarea formControlName="description" rows="5" class="form-control" id="job-description"
                       placeholder="Write job description here"></textarea>
-            <small *ngIf="postForm.controls['description'].hasError('required') && postForm.controls['description'].touched">Job Description required.</small>
+            <small
+              *ngIf="postForm.controls['description'].hasError('required') && postForm.controls['description'].touched">Job
+              Description required.</small>
           </div>
 
           <div class="form-group">
             <label for="vacancy">Vacancy</label>
             <input formControlName="vacancy" type="number" class="form-control" id="vacancy" placeholder="~ people">
-            <small *ngIf="postForm.controls['vacancy'].hasError('required') && postForm.controls['vacancy'].touched">Vacancy required.</small>
+            <small *ngIf="postForm.controls['vacancy'].hasError('required') && postForm.controls['vacancy'].touched">Vacancy
+              required.</small>
           </div>
 
           <div class="form-group">
-            <label for="gender">Gender</label>
-            <input formControlName="gender" type="text" class="form-control" id="gender" placeholder="Male/Female/Any">
-            <small *ngIf="postForm.controls['gender'].hasError('required') && postForm.controls['gender'].touched">Gender required.</small>
+            <label for="gender">Gender </label>
+            <select formControlName="gender" class="form-control" id="gender">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Any</option>
+            </select>
           </div>
 
           <div class="form-group">
-            <label for="date">Application Deadline</label>
+            <label for="date">Application Deadline (*)</label>
             <input formControlName="applicationDeadline" type="date" class="form-control" id="date">
           </div>
 

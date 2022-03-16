@@ -13,11 +13,6 @@ export class PostService {
   constructor(private http: HttpClient) {
   }
 
-  getAllPost(nextPage: any){
-    const params = nextPage;
-    return this.http.get(this.API_COMPANY+`/post`, {params})
-  }
-
   getAllField():Observable<any>{
     return this.http.get<any>(this.API_COMPANY + `/field` )
   }

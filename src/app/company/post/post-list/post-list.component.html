@@ -61,13 +61,12 @@
           <button type="button" class="btn btn-danger">Block</button>
         </li>
       </ul>
-
 <!--      page-->
       <mat-paginator style="font-size: 15px"
                      [length]="totalElements"
                      [pageSizeOptions]="[5,10,15]"
                      aria-label="Select page"
-                     (page)="moveNextPage($event)">
+                     (page)="moveNextPage(id, $event)">
       </mat-paginator>
     </div>
   </section>
@@ -98,12 +97,12 @@
             <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job
               Detail</h3>
             <ul class="list-unstyled pl-3 mb-0">
-              <li class="mb-2"><strong class="text-black">Job Code:</strong>{{postDetail?.postCode}}</li>
-              <li class="mb-2"><strong class="text-black">Field of Activity:</strong>{{postDetail?.field?.name}}</li>
-              <li class="mb-2"><strong class="text-black">Vacancy:</strong>{{postDetail?.vacancy}}</li>
-              <li class="mb-2"><strong class="text-black">Salary:</strong>{{postDetail?.salary}}</li>
-              <li class="mb-2"><strong class="text-black">Deadline:</strong>{{postDetail?.applicationDeadline}}</li>
-              <li class="mb-2"><strong class="text-black">Location:</strong>{{postDetail?.jobLocation}}</li>
+              <li class="mb-2"><strong class="text-black">Job Code: </strong>{{postDetail?.postCode}}</li>
+              <li class="mb-2"><strong class="text-black">Field of Activity: </strong>{{postDetail?.field?.name}}</li>
+              <li class="mb-2"><strong class="text-black">Vacancy: </strong>{{postDetail?.vacancy}}</li>
+              <li class="mb-2"><strong class="text-black">Salary: </strong>{{postDetail?.salary}}</li>
+              <li class="mb-2"><strong class="text-black">Deadline: </strong>{{postDetail?.applicationDeadline}}</li>
+              <li class="mb-2"><strong class="text-black">Location: </strong>{{postDetail?.jobLocation}}</li>
             </ul>
           </div>
           <div class="col-lg-12">

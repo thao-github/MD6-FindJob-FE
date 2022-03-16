@@ -22,14 +22,15 @@ export class PostListComponent implements OnInit {
               private companyService: CompanyService) {}
 
   ngOnInit(): void {
-    this.getPagePost({page:0, size: 5});
     // @ts-ignore
     this.id = window.sessionStorage.getItem('company');
     this.findCompanyById(this.id);
+    this.getPagePost(this.id, {page:0, size: 5});
   }
 
-  getPagePost(nextPage: any){
-    this.postService.getAllPost(nextPage).subscribe((posts) =>{
+  getPagePost(companyId: number, nextPage: any){
+    this.companyService.getAllPostByCompanyId(companyId, nextPage).subscribe((posts) =>{
+      console.log('post by company Id===>', posts)
       // @ts-ignore
       this.posts = posts['content'];
       // @ts-ignore
@@ -37,13 +38,13 @@ export class PostListComponent implements OnInit {
     })
   }
 
-  moveNextPage(event: PageEvent){
+  moveNextPage(companyId: number, event: PageEvent){
     const request = {};
     // @ts-ignore
     request ['page'] = event.pageIndex.toString();
     // @ts-ignore
     request['size'] = event.pageSize.toString();
-    this.getPagePost(request);
+    this.getPagePost(companyId, request);
   }
 
   getPostDetail(id: number) {

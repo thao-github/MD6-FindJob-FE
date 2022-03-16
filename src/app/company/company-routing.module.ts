@@ -16,7 +16,7 @@ const routes: Routes = [
         path: '',
         component: PostListComponent
       },
-      {path:'FPT13456', component: CompanyInfoComponent},
+      {path:'profile', component: CompanyInfoComponent},
       {path:'post/create', component: PostCreateComponent},
       {path:'post/edit/:id', component: PostEditComponent},
 

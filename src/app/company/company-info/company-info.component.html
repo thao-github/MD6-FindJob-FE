@@ -1,9 +1,10 @@
 <!-- HOME -->
-<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');" id="home-section">
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');"
+         id="home-section">
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1 class="text-white font-weight-bold">Company Name</h1>
+        <h1 class="text-white font-weight-bold">{{company?.name}}</h1>
       </div>
     </div>
   </div>
@@ -16,13 +17,15 @@
       <div class="col-lg-8 mb-4 mb-lg-0">
         <div class="d-flex align-items-center">
           <div class="border p-2 d-inline-block mr-3 rounded">
-            <img src="assets/images/job_logo_5.jpg" alt="Image">
+            <img src="{{company?.avatar}}" width="149px" height="149px" alt="Image">
           </div>
           <div>
-            <h2>Company Name</h2>
+            <h2>{{company?.name}}</h2>
             <div>
-              <span class="ml-0 mr-2 mb-2"><span class="icon-briefcase mr-2"></span>Branch</span>
-              <span class="m-2"><span class="icon-room mr-2"></span>Location</span>
+              &nbsp;&nbsp;<span class="ml-0 mr-2 mb-2"><span class="icon-briefcase mr-2"></span>{{company?.branch}}</span>
+            </div>
+            <div>
+              <span class="m-2"><span class="icon-room mr-2"></span>{{company?.address}}</span>
             </div>
           </div>
         </div>
@@ -31,31 +34,34 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="mb-5">
-          <figure class="mb-5"><img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded"></figure>
-          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Company Description</h3>
-          <p>Description....</p>
+          <figure class="mb-5"><img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded">
+          </figure>
+          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Company
+            Description</h3>
+          <p>{{company?.description}}</p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="bg-light p-3 border rounded mb-4">
           <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">About us</h3>
           <ul class="list-unstyled pl-3 mb-0">
-            <li class="mb-2"><strong class="text-black">Company Code:</strong> FPT13456 </li>
-            <li class="mb-2"><strong class="text-black">Field of Activity:</strong> Soft Ware </li>
-            <li class="mb-2"><strong class="text-black">Number of Employees:</strong> 500</li>
-            <li class="mb-2"><strong class="text-black">Phone:</strong> 024 7300 7300</li>
-            <li class="mb-2"><strong class="text-black">Email:</strong> fptsoft@gmail.com</li>
-            <li class="mb-2"><strong class="text-black">Address:</strong> Ha Noi</li>
+            <li class="mb-2"><strong class="text-black">Company Code:</strong> {{company?.companyCode}} </li>
+            <li class="mb-2"><strong class="text-black">Field of Activity:</strong> {{company?.fieldOfActivity}} </li>
+            <li class="mb-2"><strong class="text-black">Number of Employees:</strong> {{company?.numberOfEmployees}}
+            </li>
+            <li class="mb-2"><strong class="text-black">Phone:</strong> {{company?.phoneNumber}}</li>
+            <li class="mb-2"><strong class="text-black">Branch:</strong> {{company?.branch}}</li>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Edit</button>
+              Edit
+            </button>
           </ul>
         </div>
 
         <div class="bg-light p-3 border rounded">
           <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Share</h3>
           <div class="px-3">
-            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
+            <a href="{{company?.facebook}}" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
             <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
             <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
             <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
@@ -68,70 +74,99 @@
 </section>
 
 
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Company</h5>
+        <h2 class="modal-title" id="exampleModalLabel">Edit Company</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <p style="color: darkgreen">{{status}}</p>
       <div class="modal-body">
 
         <!-- START EDIT FORM-->
-        <form>
+        <form [formGroup] = "companyForm" (ngSubmit) = editCompanyInfo()>
+
+          <div class="row form-group" hidden>
+            <div class="col-md-12" readonly>
+              <label class="text-black" for="id">Id</label>
+              <input formControlName="id" type="text" id="id" class="form-control">
+            </div>
+          </div>
+
           <div class="row form-group">
             <div class="col-md-12" readonly>
               <label class="text-black" for="cCode">Company Code</label>
-              <input type="text" id="cCode" class="form-control">
+              <input formControlName="companyCode" type="text" id="cCode" class="form-control">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <label class="text-black" for="fieldOfActivity">Field of Activity: </label>
-              <input type="text" id="fieldOfActivity" class="form-control">
+              <input formControlName="fieldOfActivity" type="text" id="fieldOfActivity" class="form-control">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <label class="text-black" for="numberOfEmployees">Number of Employees: </label>
-              <input type="text" id="numberOfEmployees" class="form-control">
+              <input formControlName="numberOfEmployees" type="text" id="numberOfEmployees" class="form-control">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <label class="text-black" for="phone">Phone: </label>
-              <input type="text" id="phone" class="form-control">
-            </div>
-          </div>
-
-          <div class="row form-group">
-            <div class="col-md-12">
-              <label class="text-black" for="email">Email: </label>
-              <input type="email" id="email" class="form-control">
+              <input formControlName="phoneNumber" type="text" id="phone" class="form-control">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <label class="text-black" for="address">Address: </label>
-              <input type="text" id="address" class="form-control">
+              <input formControlName="address" type="text" id="address" class="form-control">
             </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="branch">Branch: </label>
+              <input formControlName="branch" type="text" id="branch" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="image">Avatar</label>
+              <input style="height: 45px" type="file" id="image" class="form-control" formControlName="avatar"
+                     #uploadFile (change)="uploadFileImg()">
+              <img [src]="imgUrl" alt="Image">
+            </div>
+          </div>
+
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="description">Description: </label>
+              <input formControlName="description" type="text" id="description" class="form-control">
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/company/profile">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
           </div>
 
         </form>
         <!--END EDIT FORM-->
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
     </div>
   </div>
 </div>

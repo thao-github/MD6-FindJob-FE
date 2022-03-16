@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
       } else {
         this.tokenInfo = this.getDecodedAccessToken(this.token);
         this.userId = this.tokenInfo.USER_ID;
-        console.log("company Id ===>", this.userId);
         if (this.userId) {
           this.router.navigate(['/user']);
           window.sessionStorage.setItem('user', this.userId);
@@ -69,7 +68,6 @@ export class LoginComponent implements OnInit {
   loginCompany() {
     window.sessionStorage.clear();
     const signInForm = this.loginFormCompany.value;
-
     this.authService.loginCompany(signInForm).subscribe((data) => {
       this.token = data.token;
       if (this.token === null) {

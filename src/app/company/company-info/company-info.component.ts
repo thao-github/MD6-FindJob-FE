@@ -87,7 +87,7 @@ export class CompanyInfoComponent implements OnInit {
     this.companyForm.get('avatar')?.setValue(this.imgUrl);
     const company = this.companyForm.value;
     console.log('company--->', this.company)
-    this.companyService.editCompanyInfo(company).subscribe(()=>{
+    this.companyService.editCompanyInfo(company).subscribe((data)=>{
       alert('Edit SUCCESS.');
       window.location.reload();
     }, error => {

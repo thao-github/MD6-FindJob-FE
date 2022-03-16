@@ -19,23 +19,23 @@ import {HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {environment} from "../environments/environment.prod";
-import {CompanyGuard} from "./user/service/company.guard";
-import {UserGuard} from "./user/service/user.guard";
+import {CompanyGuard} from "./service/company.guard";
+import {UserGuard} from "./service/user.guard";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    HomeComponent,
-    LoginComponent,
-    NavbarComponent,
-    FooterComponent,
-    AdminComponent,
+    declarations: [
+        AppComponent,
+        RegisterComponent,
+        HomeComponent,
+        LoginComponent,
+        NavbarComponent,
+        FooterComponent,
+        AdminComponent,
 
-  ],
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -52,7 +52,10 @@ import { AdminComponent } from './admin/admin.component';
         AngularFireStorageModule,
         MatPaginatorModule
     ],
-  providers: [CompanyGuard,UserGuard],
-  bootstrap: [AppComponent]
+    providers: [CompanyGuard, UserGuard],
+    exports: [
+        FooterComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

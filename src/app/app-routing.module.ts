@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {RegisterComponent} from "./register-login/register/register.component";
 import {LoginComponent} from "./register-login/login/login.component";
-import {CompanyGuard} from "./user/service/company.guard";
-import {UserGuard} from "./user/service/user.guard";
+import {CompanyGuard} from "./service/company.guard";
+import {UserGuard} from "./service/user.guard";
 
 
 const routes: Routes = [

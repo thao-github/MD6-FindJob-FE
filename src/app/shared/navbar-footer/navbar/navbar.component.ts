@@ -20,4 +20,8 @@ export class NavbarComponent implements OnInit {
       window.location.reload();
     },1 );
   }
+
+  reset() {
+    window.sessionStorage.clear();
+  }
 }

@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {AppModule} from "../app.module";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         CompanyRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        // AppModule
     ],
   bootstrap: [CompanyComponent]
 

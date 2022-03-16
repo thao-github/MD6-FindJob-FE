@@ -8,13 +8,10 @@ import {PostEditComponent} from "./post/post-edit/post-edit.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: CompanyComponent,
+    path: '', component: CompanyComponent,
+
     children: [
-      {
-        path: '',
-        component: PostListComponent
-      },
+      {path: '', component: PostListComponent},
       {path:'profile', component: CompanyInfoComponent},
       {path:'post/create', component: PostCreateComponent},
       {path:'post/edit/:id', component: PostEditComponent},

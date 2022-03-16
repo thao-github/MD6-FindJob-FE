@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../../model/Post";
-import {PostService} from "../../service/post.service";
+import {Post} from "../../../model/Post";
+import {PostService} from "../../../service/post.service";
 import {PageEvent} from "@angular/material/paginator";
-import {CompanyService} from "../../service/company.service";
-import {Company} from "../../model/company";
+import {CompanyService} from "../../../service/company.service";
+import {Company} from "../../../model/Company";
 
 
 @Component({

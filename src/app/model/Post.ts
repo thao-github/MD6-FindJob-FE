@@ -1,29 +1,32 @@
-import {Field} from "../../company/model/Field";
-import {Company} from "../../company/model/company";
+import {Field} from "./Field";
+import {Company} from "./Company";
 
-export class Post{
+export class Post {
   private _id!: number;
-  private _title!: string;
+  private _title!: string
+  private _postCode!: string
   private _position!: string
-  private _salary!: string;
-  private _jobLocation!: string;
-  private _experience!: number;
-  private _jobType!: string;
-  private _applicationDeadline!: string;
-  private _description!: string;
-  private _vacancy!: number;
-  private _gender!: string;
-  private _postCode!: string;
-  private _status!: boolean;
+  private _minSalary!: number
+  private _maxSalary!: number
+  private _jobLocation!: string
+  private _experience!: number
+  private _jobType!: boolean
+  private _applicationDeadline!: Date
+  private _description!: string
+  private _vacancy!: number
+  private _gender!: string
+  private _status!: boolean
   private _field!: Field;
   private _company!: Company;
 
 
-  constructor(id: number, title: string, position: string, salary: string, jobLocation: string, experience: number, jobType: string, applicationDeadline: string, description: string, vacancy: number, gender: string, postCode: string, status: boolean, field: Field, company: Company) {
+  constructor(id: number, title: string, postCode: string, position: string, minSalary: number, maxSalary: number, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
     this._id = id;
     this._title = title;
+    this._postCode = postCode;
     this._position = position;
-    this._salary = salary;
+    this._minSalary = minSalary;
+    this._maxSalary = maxSalary;
     this._jobLocation = jobLocation;
     this._experience = experience;
     this._jobType = jobType;
@@ -31,11 +34,11 @@ export class Post{
     this._description = description;
     this._vacancy = vacancy;
     this._gender = gender;
-    this._postCode = postCode;
     this._status = status;
     this._field = field;
     this._company = company;
   }
+
 
   get id(): number {
     return this._id;
@@ -53,6 +56,14 @@ export class Post{
     this._title = value;
   }
 
+  get postCode(): string {
+    return this._postCode;
+  }
+
+  set postCode(value: string) {
+    this._postCode = value;
+  }
+
   get position(): string {
     return this._position;
   }
@@ -61,12 +72,20 @@ export class Post{
     this._position = value;
   }
 
-  get salary(): string {
-    return this._salary;
+  get minSalary(): number {
+    return this._minSalary;
   }
 
-  set salary(value: string) {
-    this._salary = value;
+  set minSalary(value: number) {
+    this._minSalary = value;
+  }
+
+  get maxSalary(): number {
+    return this._maxSalary;
+  }
+
+  set maxSalary(value: number) {
+    this._maxSalary = value;
   }
 
   get jobLocation(): string {
@@ -85,19 +104,19 @@ export class Post{
     this._experience = value;
   }
 
-  get jobType(): string {
+  get jobType(): boolean {
     return this._jobType;
   }
 
-  set jobType(value: string) {
+  set jobType(value: boolean) {
     this._jobType = value;
   }
 
-  get applicationDeadline(): string {
+  get applicationDeadline(): Date {
     return this._applicationDeadline;
   }
 
-  set applicationDeadline(value: string) {
+  set applicationDeadline(value: Date) {
     this._applicationDeadline = value;
   }
 
@@ -123,14 +142,6 @@ export class Post{
 
   set gender(value: string) {
     this._gender = value;
-  }
-
-  get postCode(): string {
-    return this._postCode;
-  }
-
-  set postCode(value: string) {
-    this._postCode = value;
   }
 
   get status(): boolean {

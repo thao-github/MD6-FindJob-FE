@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../user/model/post";
-import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {PostService} from "../user/service/postService";
 import {Router} from "@angular/router";
 import {PageEvent} from "@angular/material/paginator";
+import {Post} from "../model/Post";
 
 @Component({
   selector: 'app-home',

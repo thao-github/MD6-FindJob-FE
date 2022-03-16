@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {PostService} from "../../service/post.service";
-import {Field} from "../../model/Field";
+import {PostService} from "../../../service/post.service";
+import {Field} from "../../../model/Field";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Post} from "../../model/Post";
+import {Post} from "../../../model/Post";
 
 @Component({
   selector: 'app-post-edit',

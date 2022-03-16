@@ -1,76 +1,47 @@
-<app-navbar></app-navbar>
-<div class="site-wrap">
+<section class="site-section">
+  <div class="container">
 
-  <div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close mt-3">
-        <span class="icon-close2 js-menu-toggle"></span>
+    <div class="row mb-5 justify-content-center">
+      <div class="col-md-7 text-center">
+        <h2 class="section-title mb-2">{{totalElements}} Job Listed</h2>
       </div>
     </div>
-    <div class="site-mobile-menu-body"></div>
-  </div> <!-- .site-mobile-menu -->
 
-
-  <!--  HOME-->
-  <!--  SEARCH AREA-->
-  <section class="home-section section-hero overlay bg-image" style="background-image: url('assets/images/hero_1.jpg');"
-           id="home-section">
-    <div class="container">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-md-12">
-          <div class="mb-5 text-center">
-            <h1 class="text-white font-weight-bold">{{company?.name}}</h1>
-            <p>Company Description: {{company?.description}}</p>
-          </div>
+    <ul class="job-listings mb-5">
+      <li *ngFor="let post of posts" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+        <div class="job-listing-logo">
+          <img src="{{post.company.avatar}}" alt="Free Website Template by Free-Template.co"
+               class="img-fluid">
         </div>
-      </div>
-    </div>
+        <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+          <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+            <h2 (click)="getPostDetail(post.id)" data-toggle="modal" data-target="#exampleModal">{{post.title}}</h2>
+            <strong>Vacancy: {{post.vacancy}}</strong><br>
+            <strong>Experience: {{post.experience}} year</strong><br>
+            <strong>Salary: {{post.minSalary}} - {{post.maxSalary}} $</strong>
+          </div>
+          <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+            <span class="icon-room"></span> {{post.jobLocation}}
+          </div>
 
-    <a href="#next" class="scroll-button smoothscroll">
-      <span class=" icon-keyboard_arrow_down"></span>
-    </a>
+          <div class="job-listing-meta">
+            <span *ngIf="post.jobType" class="badge badge-success">Full time</span>
+            <span *ngIf="!post.jobType" class="badge badge-danger">Part time</span>
+          </div>
 
-  </section>
-
-  <!--  JOB-LIST AREA-->
-  <section class="site-section">
-    <div class="container">
-
-      <div class="row mb-5 justify-content-center">
-        <div class="col-md-7 text-center">
-          <h2 class="section-title mb-2"> Job Listed</h2>
         </div>
-      </div>
+      </li>
+    </ul>
 
-      <ul class="job-listings mb-5">
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center" *ngFor="let post of posts">
-          <div class="job-listing-logo">
-            <img src="{{company.avatar}}" alt="Free Website Template by Free-Template.co"
-                 class="img-fluid">
-          </div>
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <!--              modal-->
-              <h2 (click)="getPostDetail(post.id)" data-toggle="modal" data-target="#exampleModal">{{post.title}}</h2>
-              <strong>Vacancy: {{post.vacancy}}</strong><br>
-              <strong>Experience: {{post.experience}} year</strong><br>
-              <strong>Deadline: {{post.applicationDeadline}}</strong>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary" [routerLink]="['post/edit', post.id]">Edit</button> &nbsp;
-          <button type="button" class="btn btn-danger">Block</button>
-        </li>
-      </ul>
-<!--      page-->
-      <mat-paginator style="font-size: 15px"
-                     [length]="totalElements"
-                     [pageSizeOptions]="[5,10,15]"
-                     aria-label="Select page"
-                     (page)="moveNextPage(id, $event)">
-      </mat-paginator>
-    </div>
-  </section>
-</div>
+    <mat-paginator style="font-size: 15px"
+                   [length]="totalElements"
+                   [pageSizeOptions]="[5,10,15]"
+                   aria-label="Select page"
+                   (page)="moveNextPage($event)">
+    </mat-paginator>
+  </div>
+</section>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -124,8 +95,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 

@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../model/post";
-import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {PostService} from "../service/postService";
-import {ActivatedRoute, Router} from "@angular/router";
 import {PageEvent} from "@angular/material/paginator";
+import {Post} from "../../model/Post";
 
 @Component({
-  selector: 'app-find-all-job',
-  templateUrl: './find-all-job.component.html',
-  styleUrls: ['./find-all-job.component.css']
+  selector: 'app-post-list',
+  templateUrl: './post-list.component.html',
+  styleUrls: ['./post-list.component.css']
 })
-export class FindAllJobComponent implements OnInit {
+export class PostListComponent implements OnInit {
 
   totalElements: number = 0;
 
   posts: Post[] = [];
+
+  postDetail!: Post;
 
 
   constructor(private http: HttpClient, private postService: PostService) {
@@ -35,7 +35,7 @@ export class FindAllJobComponent implements OnInit {
     })
   }
 
-  nextPage(event: PageEvent){
+  moveNextPage(event: PageEvent){
     const req = {};
     // @ts-ignore
     req['page'] = event.pageIndex.toString();
@@ -44,4 +44,9 @@ export class FindAllJobComponent implements OnInit {
     this.pagePost(req);
   }
 
+  getPostDetail(id: number) {
+    this.postService.findPostById(id).subscribe((data) =>{
+      this.postDetail = data;
+    })
+  }
 }

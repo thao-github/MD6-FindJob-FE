@@ -106,30 +106,33 @@
 
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
-          <h2 class="section-title mb-2">Job Listed</h2>
+          <h2 class="section-title mb-2">{{totalElements}} Job Listed</h2>
         </div>
       </div>
 
       <ul class="job-listings mb-5">
-        <li *ngFor="let p of posts" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+        <li *ngFor="let post of posts" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
           <a (click)="notLogin()"></a>
           <div class="job-listing-logo">
-            <img src="assets/images/job_logo_1.jpg" alt="Free Website Template by Free-Template.co"
+            <img src="{{post.company.avatar}}" alt="Free Website Template by Free-Template.co"
                  class="img-fluid">
           </div>
           <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
             <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>{{p.title}}</h2>
-              <strong>Vacancy: {{p.vacancy}}</strong><br>
-              <strong>Experience: {{p.experience}}</strong><br>
-              <strong>Salary: {{p.salary}}</strong>
+              <h2>{{post.title}}</h2>
+              <strong>Vacancy: {{post.vacancy}}</strong><br>
+              <strong>Experience: {{post.experience}} year</strong><br>
+              <strong>Salary: {{post.minSalary}} - {{post.maxSalary}} $</strong>
             </div>
             <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> {{p.jobLocation}}
+              <span class="icon-room"></span> {{post.jobLocation}}
             </div>
+
             <div class="job-listing-meta">
-              <span class="badge badge-danger">{{p.jobType}}</span>
+              <span *ngIf="post.jobType" class="badge badge-success">Full time</span>
+              <span *ngIf="!post.jobType" class="badge badge-danger">Part time</span>
             </div>
+
           </div>
         </li>
       </ul>

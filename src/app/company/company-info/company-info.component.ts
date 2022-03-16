@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {CompanyService} from "../service/company.service";
-import {Company} from "../model/company";
+import {CompanyService} from "../../service/company.service";
+import {Company} from "../../model/Company";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {finalize} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
@@ -57,6 +57,7 @@ export class CompanyInfoComponent implements OnInit {
         'facebook': new FormControl(this.company.facebook),
         'mapLink': new FormControl(this.company.mapLink),
       })
+      this.imgUrl = this.company.avatar;
     })
   }
 

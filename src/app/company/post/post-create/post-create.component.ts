@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {PostService} from "../../service/post.service";
-import {Field} from "../../model/Field";
-import {Post} from "../../model/Post";
-import {CompanyService} from "../../service/company.service";
-import {Company} from "../../model/company";
+import {PostService} from "../../../service/post.service";
+import {Field} from "../../../model/Field";
+import {Post} from "../../../model/Post";
+import {CompanyService} from "../../../service/company.service";
+import {Company} from "../../../model/Company";
 
 @Component({
   selector: 'app-post-create',

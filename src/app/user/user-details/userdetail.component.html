@@ -1,63 +1,148 @@
-<!--<app-userNavbar></app-userNavbar>-->
+<app-userNavbar></app-userNavbar>
+<!-- HOME -->
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');"
+         id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="text-white font-weight-bold">{{user?.name}}</h1>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!--<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');" id="home-section">-->
-<!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div class="col-md-7">-->
-<!--        <h1 class="text-white font-weight-bold">User Profile</h1>-->
-<!--        <div class="custom-breadcrumbs">-->
-<!--          <a [routerLink]="['/home']">Home</a> <span class="mx-2 slash">/</span>-->
-<!--          <span class="text-white"><strong>User Profile</strong></span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
 
-<!--<section class="site-section">-->
-<!--  <div class="container">-->
-<!--    <div class="row align-items-center mb-5">-->
-<!--      <div class="col-lg-8 mb-4 mb-lg-0">-->
-<!--        <div class="d-flex align-items-center">-->
-<!--          <div class="border p-2 d-inline-block mr-3 rounded">-->
-<!--            <img src="{{user.avatar}}" alt="Image">-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <h2>{{user.name}}</h2>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+<section class="site-section">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8 mb-4 mb-lg-0">
+        <div class="d-flex align-items-center">
+          <div class="border p-2 d-inline-block mr-3 rounded">
+            <img src="{{user?.avatar}}" width="149px" height="149px" alt="Image">
+          </div>
+          <div>
+            <h2>{{user?.name}}</h2>
+            <div>
+              <span class="m-2"><span class="icon-room mr-2"></span>{{user?.address}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="mb-5">
+          <figure class="mb-5"><img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded">
+          </figure>
 
-<!--    <div class="row">-->
-<!--      <div class="col-lg-8">-->
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bg-light p-3 border rounded mb-4">
+          <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">My Profile</h3>
+          <ul class="list-unstyled pl-3 mb-0">
+            <li class="mb-2"><strong class="text-black">Name:</strong> {{user?.name}} </li>
+            <li class="mb-2"><strong class="text-black">Email:</strong> {{user?.email}} </li>
+            <li class="mb-2"><strong class="text-black">Phone:</strong> {{user?.phoneNumber}}</li>
+            <li class="mb-2"><strong class="text-black">Address:</strong> {{user?.address}}</li>
 
-<!--        <div class="mb-5">-->
-<!--          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span> Email: </h3>-->
-<!--          <p> {{user.email}}</p>-->
-<!--        </div>-->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Edit
+            </button>
+          </ul>
+        </div>
 
-<!--        <div class="mb-5">-->
-<!--          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Phone Number: </h3>-->
-<!--          <p> {{user.phoneNumber}}</p>-->
-<!--        </div>-->
+        <div class="bg-light p-3 border rounded">
+          <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Share</h3>
+          <div class="px-3">
+            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
+            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
+            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
+            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
+          </div>
+        </div>
 
-<!--        <div class="mb-5">-->
-<!--          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Address: </h3>-->
-<!--          <p> {{user.address}}</p>-->
-<!--        </div>-->
+      </div>
+    </div>
+  </div>
+</section>
 
-<!--        <div class="row mb-5">-->
-<!--          <div class="col-6">-->
-<!--            <a  [routerLink]="['/user/user-edit', user.id]" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Edit Profile </a>-->
-<!--          </div>-->
-<!--          <div class="col-6">-->
-<!--            <a [routerLink]="['/home']" class="btn btn-block btn-primary btn-md">Back to home</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Edit Company</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <!-- START EDIT FORM-->
+        <form [formGroup] = "userForm" (ngSubmit) = editUser(id)>
+
+          <div class="row form-group" hidden>
+            <div class="col-md-12" readonly>
+              <label class="text-black" for="id">Id</label>
+              <input formControlName="id" type="text" id="id" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group" >
+            <div class="col-md-12" readonly>
+              <label class="text-black" for="name">Name</label>
+              <input formControlName="name" type="text" id="name" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group" hidden>
+            <div class="col-md-12" readonly>
+              <label class="text-black" for="email">Email</label>
+              <input formControlName="email" type="email" id="email" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="phone">Phone: </label>
+              <input formControlName="phoneNumber" type="text" id="phone" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="address">Address: </label>
+              <input formControlName="address" type="text" id="address" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="image">Avatar</label>
+              <input style="height: 45px" type="file" id="image" class="form-control" formControlName="avatar"
+                     #uploadFile (change)="uploadFileImg()">
+              <img [src]="imgUrl" alt="Image">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/user/profile">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+
+        </form>
+        <!--END EDIT FORM-->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
 
 

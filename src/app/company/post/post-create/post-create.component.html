@@ -49,18 +49,26 @@
               required.</small>
           </div>
 
-          <div class="form-group">
-            <label for="salary">Salary (*)</label>
-            <select formControlName="salary" class="form-control" id="salary">
-              <option>500-1000$</option>
-            </select>
+          <div class="row form-group">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="text-black" for="minSalary">Salary from (*)</label>
+              <input formControlName="minSalary" type="text" id="minSalary" class="form-control" placeholder="$">
+              <small *ngIf="postForm.controls['minSalary'].hasError('required') && postForm.controls['minSalary'].touched">To (*)
+                required.</small>
+            </div>
+            <div class="col-md-6">
+              <label class="text-black" for="maxSalary">To</label>
+              <input formControlName="maxSalary" type="text" id="maxSalary" class="form-control" placeholder="$">
+              <small *ngIf="postForm.controls['maxSalary'].hasError('required') && postForm.controls['maxSalary'].touched">Salary
+                required.</small>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="job-type">Job Type (*)</label>
             <select formControlName="jobType" class="form-control" id="job-type">
-              <option>Full time</option>
-              <option>Part time</option>
+              <option value="true">Full time</option>
+              <option value="false">Part time</option>
             </select>
           </div>
 

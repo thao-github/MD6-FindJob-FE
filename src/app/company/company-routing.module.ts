@@ -6,7 +6,6 @@ import {PostCreateComponent} from "./post/post-create/post-create.component";
 import {PostListComponent} from "./post/post-list/post-list.component";
 import {PostEditComponent} from "./post/post-edit/post-edit.component";
 
-
 const routes: Routes = [
   {
     path: '',

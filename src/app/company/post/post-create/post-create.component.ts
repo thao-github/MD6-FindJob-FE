@@ -18,7 +18,8 @@ export class PostCreateComponent implements OnInit {
 
   postForm = new FormGroup({
   'title' : new FormControl(null, Validators.required),
-  'salary' :new FormControl(null, Validators.required),
+  'minSalary' : new FormControl(null, Validators.required),
+  'maxSalary' :new FormControl(null, Validators.required),
   'jobLocation' : new FormControl(null, Validators.required),
   'position' : new FormControl(null, Validators.required),
   'experience' : new FormControl(null, Validators.required),
@@ -28,6 +29,7 @@ export class PostCreateComponent implements OnInit {
   'vacancy' : new FormControl(null, Validators.required),
   'gender' : new FormControl(null, Validators.required),
   'field' : new FormControl(null, Validators.required),
+  'company' : new FormControl(null, Validators.required),
   'status' : new FormControl(null, Validators.required),
   })
 
@@ -59,7 +61,7 @@ export class PostCreateComponent implements OnInit {
       console.log('post --->', post)
       this.postService.createPost(post).subscribe((data) =>{
         this.post = data;
-        alert('Create Post SUCCESS.');
+        alert('Post CREATED.');
         window.location.reload();
       }, error => {
         console.log(error)

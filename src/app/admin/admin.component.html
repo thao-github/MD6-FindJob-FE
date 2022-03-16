@@ -1,0 +1,72 @@
+<div class="thang">
+  <div class="wrapper">
+    <div class="side-menu">
+      <div class="logo">
+        wiplo
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="#"><i class="fa fa-server" aria-hidden="true"></i><span class="text"> Projects </span></a>
+            <ul class="dropdown">
+              <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="text"> Growth</span></a>
+              </li>
+              <li><a href="#"><i class="fa fa-arrows-alt" aria-hidden="true"></i><span
+                class="text"> Operations</span></a></li>
+              <li><a href="#"><i class="fa fa-desktop" aria-hidden="true"></i><span class="text"> Website</span></a>
+              </li>
+              <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="text"> Wedding</span></a>
+              </li>
+              <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i><span class="text"> iPhone</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="topmenu">
+        <a href="#" id="showmenu"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        <div class="search"><i class="fa fa-search" aria-hidden="true"></i> <input type='text' class='src'
+                                                                                   placeholder='Search for cards...'/>
+        </div>
+      </div>
+      <div class="main-section">
+        <div class="section-title">Business is waiting for confirmation</div>
+        <div class="e-table">
+          <div class="table-responsive table-lg mt-3">
+            <table class="table table-bordered" >
+              <thead>
+              <tr>
+                <th class="max-width">Email</th>
+                <th class="sortable">Company Name</th>
+                <th class="sortable">Status</th>
+                <th>Actions</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody *ngFor="let c of listCompany">
+              <tr>
+                <td class="text-nowrap align-middle">{{c.email}}</td>
+                <td class="text-nowrap align-middle"><span>{{c.name}}</span></td>
+                <td class="text-nowrap align-middle"><span>{{c.status}}</span></td>
+                <td class="text-center align-middle">
+                  <div class="btn-group align-top">
+                    <button (click)="confirmCompany(c)" class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal"
+                            data-target="#user-form-modal">Confirm
+                    </button>
+                  </div>
+                </td>
+                <td class="text-center align-middle">
+                  <div class="btn-group align-top">
+                    <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

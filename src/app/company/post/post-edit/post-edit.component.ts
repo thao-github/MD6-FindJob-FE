@@ -18,7 +18,8 @@ export class PostEditComponent implements OnInit {
   postForm = new FormGroup({
     'id': new FormControl(null),
     'title' : new FormControl(null, Validators.required),
-    'salary' :new FormControl(null, Validators.required),
+    'minSalary' :new FormControl(null, Validators.required),
+    'maxSalary' :new FormControl(null, Validators.required),
     'jobLocation' : new FormControl(null, Validators.required),
     'position' : new FormControl(null, Validators.required),
     'experience' : new FormControl(null, Validators.required),
@@ -38,16 +39,12 @@ export class PostEditComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       // @ts-ignore
       this.id = +paramMap.get('id');
-      console.log('id===>', this.id);
-
     })
   }
 
   ngOnInit(): void {
     this.getAllField();
     this.findPostById(this.id);
-
-    console.log("id oninit", this.id)
   }
 
   getAllField() {
@@ -64,7 +61,8 @@ export class PostEditComponent implements OnInit {
       this.postForm = new FormGroup({
         'id': new FormControl(post.id),
         'title': new FormControl(post.title),
-        'salary': new FormControl(post.salary),
+        'minSalary': new FormControl(post.minSalary),
+        'maxSalary': new FormControl(post.maxSalary),
         'jobLocation': new FormControl(post.jobLocation),
         'position': new FormControl(post.position),
         'experience': new FormControl(post.experience),
@@ -74,7 +72,9 @@ export class PostEditComponent implements OnInit {
         'vacancy': new FormControl(post.vacancy),
         'gender': new FormControl(post.gender),
         'field': new FormControl(post.field),
-        'status': new FormControl(post.status)
+        'status': new FormControl(post.status),
+        'company': new FormControl(post.company),
+
       })
     }, error => {
       console.log(error);
@@ -83,10 +83,12 @@ export class PostEditComponent implements OnInit {
 
   saveChanges(id: number) {
     const post = this.postForm.value;
+    console.log("updated", post)
     this.postService.editPost(id, post).subscribe((post) => {
-      this.status = "Post UPDATED."
+      alert("Post UPDATED.");
+      window.location.reload();
     }, error => {
-      console.log(error)
+      console.log(error);
     })
   }
 }

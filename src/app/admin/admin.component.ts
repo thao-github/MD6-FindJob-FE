@@ -23,4 +23,9 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  confirmCompany(company: Company) {
+    this.adminService.confirmCompany(company).subscribe(() => {
+      this.getAllCompany();
+    })
+  }
 }

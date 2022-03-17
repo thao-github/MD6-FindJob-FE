@@ -30,7 +30,7 @@ export class PostService {
   }
 
   blockPost(id:number, status: boolean):Observable<any>{
-    return this.http.put<any>(this.API_COMPANY+`/post/status/${id}`,status)
+    return this.http.put<any>(this.API_COMPANY+`/post/status/${id}`, status)
   }
 
 

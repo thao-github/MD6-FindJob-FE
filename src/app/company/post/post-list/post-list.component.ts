@@ -17,6 +17,7 @@ export class PostListComponent implements OnInit {
   postDetail!: Post;
   totalElements: number = 0;
   company!: Company;
+  postStatus!: boolean;
 
   constructor(private postService: PostService,
               private companyService: CompanyService) {}
@@ -26,11 +27,12 @@ export class PostListComponent implements OnInit {
     this.id = window.sessionStorage.getItem('company');
     this.findCompanyById(this.id);
     this.getPagePost(this.id, {page:0, size: 5});
+
+
   }
 
   getPagePost(companyId: number, nextPage: any){
     this.companyService.getAllPostByCompanyId(companyId, nextPage).subscribe((posts) =>{
-      console.log('post by company Id===>', posts)
       // @ts-ignore
       this.posts = posts['content'];
       // @ts-ignore
@@ -59,6 +61,13 @@ export class PostListComponent implements OnInit {
     this.companyService.findCompanyById(id).subscribe((data) =>{
       this.company = data;
       console.log('company--->', this.company)
+    })
+  }
+
+  blockPost(id: number, status: boolean){
+    this.postService.blockPost(id, status).subscribe(() =>{
+      alert('Post BLOCKED.');
+      window.location.reload();
     })
   }
 

@@ -58,7 +58,8 @@
             </div>
           </div>
           <button type="button" class="btn btn-primary" [routerLink]="['post/edit', post.id]">Edit</button> &nbsp;
-          <button type="button" class="btn btn-danger">Block</button>
+          <button *ngIf="post.status" type="button" class="btn btn-danger" (click)="blockPost(post.id, post.status)">Block</button>
+          <button style="color:#f1f1f1" *ngIf="!post.status" type="button" class="btn btn-success" (click)="blockPost(post.id, post.status)">Unblock</button>
         </li>
       </ul>
 <!--      page-->

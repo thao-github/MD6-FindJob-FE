@@ -15,10 +15,13 @@ export class PostService{
     return this.http.get<any>("http://localhost:8080/post/" + id);
   }
 
-
   pagePost(nextPage: any){
     const params = nextPage;
     return this.http.get('http://localhost:8080/post/findAllPost', {params})
+  }
+
+  findTopCompany(): Observable<any>{
+    return this.http.get('http://localhost:8080/users/topCompany')
   }
 
 }

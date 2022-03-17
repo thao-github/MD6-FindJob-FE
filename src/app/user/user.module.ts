@@ -11,6 +11,7 @@ import {UserDetailComponent} from "./user-details/userdetail.component";
 import {CompanyModule} from "../company/company.module";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {AppModule} from "../app.module";
+import { TopcompanyComponent } from './topcompany/topcompany.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {AppModule} from "../app.module";
     UserHomeComponent,
     NavbarComponent,
     UserDetailComponent,
+    TopcompanyComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,85 @@
+<section class="site-section">
+  <div class="container">
+
+    <div class="row mb-5 justify-content-center">
+      <div class="col-md-7 text-center">
+        <h2 class="section-title mb-2">Top Company</h2>
+      </div>
+    </div>
+
+    <ul class="job-listings mb-5">
+      <li *ngFor="let s of companyList" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+        <div class="job-listing-logo">
+          <img src="{{s.avatar}}" alt="Free Website Template by Free-Template.co"
+               class="img-fluid">
+        </div>
+        <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+          <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+            <h2 (click)="getCompanyDetail(s.id)" data-toggle="modal" data-target="#exampleModal">{{s.name}}</h2>
+            <strong>Address: {{s.address}}</strong><br>
+            <strong>Number of employees: {{s.numberOfEmployees}}</strong><br>
+            <strong>Phone Number: {{s.phoneNumber}}</strong>
+          </div>
+          <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+            <span class="icon-room"></span> {{s.companyCode}}
+          </div>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+-- Modal --
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel"> Company Detail</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--      body-->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <figure class="mb-5"><img src="{{companyDetail?.avatar}}" alt="Image" class="img-fluid rounded">
+            </figure>
+            <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job
+              Description</h3>
+            <p>{{companyDetail?.description}}</p>
+          </div>
+          <div class="col-lg-12">
+            <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Company
+              Detail</h3>
+            <ul class="list-unstyled pl-3 mb-0">
+              <li class="mb-2"><strong class="text-black">Company Name: </strong>{{companyDetail?.name}}</li>
+              <li class="mb-2"><strong class="text-black">Company Code: </strong>{{companyDetail?.companyCode}}</li>
+              <li class="mb-2"><strong class="text-black">Phone Number: </strong>{{companyDetail?.phoneNumber}}</li>
+              <li class="mb-2"><strong class="text-black">Number of Employees: </strong>{{companyDetail?.numberOfEmployees}}</li>
+              <li class="mb-2"><strong class="text-black">Address: </strong>{{companyDetail?.address}}</li>
+              <li class="mb-2"><strong class="text-black">Field of Activity: </strong>{{companyDetail?.fieldOfActivity}}</li>
+              <li class="mb-2"><strong class="text-black">Map Link: </strong>{{companyDetail?.mapLink}}</li>
+            </ul>
+          </div>
+          <div class="col-lg-12">
+            <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Share
+            </h3>
+            <div class="px-3">
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
+              <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--      body-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

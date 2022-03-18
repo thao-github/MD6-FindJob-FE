@@ -88,12 +88,13 @@ export class LoginComponent implements OnInit {
         this.status = 'Invalid Email or Password.'
         this.loginFormUser.reset();
       } else {
+        window.sessionStorage.setItem('KEY_TOKEN', this.token);
         this.tokenInfo = this.getDecodedAccessToken(this.token);
         window.sessionStorage.setItem('token', JSON.stringify(this.tokenInfo));
         console.log("this.tokenInfo ==>", this.tokenInfo)
         this.companyId = this.tokenInfo.COMPANY_ID;
         this.isConfirm = this.tokenInfo.status;
-        console.log(this.isConfirm);
+        console.log("this.isConfirm ==>", this.isConfirm);
         if (this.companyId && this.isConfirm) {
           this.router.navigate(['/company']);
           window.sessionStorage.setItem('company', this.companyId);

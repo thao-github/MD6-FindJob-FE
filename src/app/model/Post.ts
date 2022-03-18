@@ -18,9 +18,12 @@ export class Post {
   private _status!: boolean
   private _field!: Field;
   private _company!: Company;
+  private _isApplied!: boolean;
 
 
-  constructor(id: number, title: string, postCode: string, position: string, minSalary: number, maxSalary: number, jobLocation: string, experience: number, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string, status: boolean, field: Field, company: Company) {
+  constructor(id: number, title: string, postCode: string, position: string, minSalary: number, maxSalary: number, jobLocation: string,
+              experience: number, jobType: boolean, applicationDeadline: Date, description: string, vacancy: number, gender: string,
+              status: boolean, field: Field, company: Company, isApplied: boolean) {
     this._id = id;
     this._title = title;
     this._postCode = postCode;
@@ -37,8 +40,17 @@ export class Post {
     this._status = status;
     this._field = field;
     this._company = company;
+    this._isApplied = isApplied;
   }
 
+
+  get isApplied(): boolean {
+    return this._isApplied;
+  }
+
+  set isApplied(value: boolean) {
+    this._isApplied = value;
+  }
 
   get id(): number {
     return this._id;

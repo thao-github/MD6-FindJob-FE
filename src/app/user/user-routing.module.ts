@@ -4,7 +4,6 @@ import {PostListComponent} from "./post-list/post-list.component";
 import {UserDetailComponent} from "./user-details/userdetail.component";
 import {UserHomeComponent} from "./userHome/home.component";
 import {CompanyContactComponent} from "./company-contact/company-contact.component";
-
 const routes: Routes = [
   {path: '', component: UserHomeComponent},
   {path: 'profile', component: UserDetailComponent},

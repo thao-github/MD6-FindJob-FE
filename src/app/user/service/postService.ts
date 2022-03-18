@@ -23,4 +23,8 @@ export class PostService{
     return this.http.get(this.API_POST + '/findAllPost', {params})
   }
 
+  findAllPostByStatusAndApply(): Observable<any> {
+    return this.http.get<any>("http://localhost:8080/apply/list/post")
+  }
+
 }

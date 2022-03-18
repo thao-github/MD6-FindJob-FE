@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {reload} from "@angular/fire/auth";
+import {ApplyService} from "../service/apply.service";
+import {Post} from "../../model/Post";
 
 @Component({
   selector: 'app-userNavbar',
@@ -9,9 +11,12 @@ import {reload} from "@angular/fire/auth";
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  postList: any = [];
+
+  constructor(private router: Router, private applyService: ApplyService) { }
 
   ngOnInit(): void {
+    this.showApplyByUser();
   }
 
   returnHome() {
@@ -28,5 +33,12 @@ export class NavbarComponent implements OnInit {
     setTimeout(function () {
       window.location.reload();
     },1 );
+  }
+
+  showApplyByUser() {
+    this.applyService.showApplyByUser().subscribe(data => {
+      this.postList = data;
+      console.log(this.postList)
+    })
   }
 }

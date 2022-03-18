@@ -23,6 +23,7 @@ import {CompanyGuard} from "./service/company.guard";
 import {UserGuard} from "./service/user.guard";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { AdminComponent } from './admin/admin.component';
+import {httpInterceptorProvider} from "./security/auth.interceptor";
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { AdminComponent } from './admin/admin.component';
         AngularFireStorageModule,
         MatPaginatorModule
     ],
-    providers: [CompanyGuard, UserGuard],
+    providers: [httpInterceptorProvider, CompanyGuard, UserGuard],
   exports: [
     FooterComponent,
     NavbarComponent

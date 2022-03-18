@@ -1,0 +1,77 @@
+<!-- HOME -->
+<app-userNavbar></app-userNavbar>
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');"
+         id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="text-white font-weight-bold">{{company?.name}}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="site-section">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8 mb-4 mb-lg-0">
+        <div class="d-flex align-items-center">
+          <div class="border p-2 d-inline-block mr-3 rounded">
+            <img src="{{company?.avatar}}" width="149px" height="149px" alt="Image">
+          </div>
+          <div>
+            <h2>{{company?.name}}</h2>
+            <div>
+              &nbsp;&nbsp;<span class="ml-0 mr-2 mb-2"><span class="icon-briefcase mr-2"></span>{{company?.branch}}</span>
+            </div>
+            <div>
+              <span class="m-2"><span class="icon-room mr-2"></span>{{company?.address}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="mb-5">
+          <figure class="mb-5"><img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded">
+          </figure>
+          <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Company
+            Description</h3>
+          <p>{{company?.description}}</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bg-light p-3 border rounded mb-4">
+          <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">About us</h3>
+          <ul class="list-unstyled pl-3 mb-0">
+            <li class="mb-2"><strong class="text-black">Company Code:</strong> {{company?.companyCode}} </li>
+            <li class="mb-2"><strong class="text-black">Field of Activity:</strong> {{company?.fieldOfActivity}} </li>
+            <li class="mb-2"><strong class="text-black">Number of Employees:</strong> {{company?.numberOfEmployees}}
+            </li>
+            <li class="mb-2"><strong class="text-black">Phone:</strong> {{company?.phoneNumber}}</li>
+            <li class="mb-2"><strong class="text-black">Branch:</strong> {{company?.email}}</li>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Edit
+            </button>
+          </ul>
+        </div>
+
+        <div class="bg-light p-3 border rounded">
+          <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Share</h3>
+          <div class="px-3">
+            <a href="{{company?.facebook}}" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
+            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
+            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
+            <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+

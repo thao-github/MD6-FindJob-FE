@@ -53,9 +53,10 @@ import { AdminComponent } from './admin/admin.component';
         MatPaginatorModule
     ],
     providers: [CompanyGuard, UserGuard],
-    exports: [
-        FooterComponent
-    ],
+  exports: [
+    FooterComponent,
+    NavbarComponent
+  ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

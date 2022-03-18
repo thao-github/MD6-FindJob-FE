@@ -44,8 +44,6 @@ export class PostCreateComponent implements OnInit {
 
   getAllField(){
     this.postService.getAllField().subscribe((data) =>{
-      console.log("data")
-      console.log(data)
       this.fields = data;
     })
   }

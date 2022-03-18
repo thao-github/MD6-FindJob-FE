@@ -25,10 +25,11 @@
     <div class="main-content">
       <div class="topmenu">
         <a href="#" id="showmenu"><i class="fa fa-bars" aria-hidden="true"></i></a>
-        <div class="search"><i class="fa fa-search" aria-hidden="true"></i> <input type='text' class='src'
+        <div class="search"><i class="fa fa-search" aria-hidden="true"></i> <input id="search-input" type='text' class='src'
                                                                                    placeholder='Search for cards...'/>
         </div>
         <div class="ml-auto">
+          <button (click)="searchCompany()" id="search-button" class="btn btn-primary search1">Search</button>
           <a style="color:#fff;" (click)="logOut()" class="btn btn-primary d-lg-inline-block logOut"><span>
           </span>Log out</a>
         </div>

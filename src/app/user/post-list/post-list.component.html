@@ -7,15 +7,15 @@
       </div>
     </div>
 
-    <ul class="job-listings mb-5">
-      <li *ngFor="let post of posts" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+    <ul *ngFor="let post of posts" class="job-listings mb-5" >
+      <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
         <div class="job-listing-logo">
           <img src="{{post.company.avatar}}" alt="Free Website Template by Free-Template.co"
                class="img-fluid">
         </div>
         <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
           <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-            <h2 (click)="getPostDetail(post.id)" data-toggle="modal" data-target="#exampleModal">{{post.title}}</h2>
+            <h2 (click)="getPostDetail(post.id)" data-toggle="modal" data-target="#exampleModall">{{post.title}}</h2>
             <strong>Vacancy: {{post.vacancy}}</strong><br>
             <strong>Experience: {{post.experience}} year</strong><br>
             <strong>Salary: {{post.minSalary}} - {{post.maxSalary}} $</strong>
@@ -44,7 +44,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -60,6 +60,8 @@
           <div class="col-lg-12">
             <figure class="mb-5"><img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded">
             </figure>
+            <a (click)="apply(postDetail.id)" style="color:#fff;" class="btn btn-primary border-width-2 d-lg-inline-block margin-thang"><span
+            ></span>Apply Now</a>
             <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job
               Description</h3>
             <p>{{postDetail?.description}}</p>

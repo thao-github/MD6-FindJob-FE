@@ -45,9 +45,11 @@ export class LoginComponent implements OnInit {
       this.token = data.token;
 
       if (this.token === null) {
+
         this.status = 'Invalid Email or Password.'
         this.loginFormUser.reset();
       } else {
+        window.sessionStorage.setItem('KEY_TOKEN', this.token);
         this.tokenInfo = this.getDecodedAccessToken(this.token);
         window.sessionStorage.setItem('token', JSON.stringify(this.tokenInfo));
         console.log("this.tokenInfo ==>", this.tokenInfo)

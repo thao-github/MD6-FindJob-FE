@@ -3,6 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {PostService} from "../service/postService";
 import {PageEvent} from "@angular/material/paginator";
 import {Post} from "../../model/Post";
+import {ApplyService} from "../service/apply.service";
+import {Users} from "../../model/users";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-post-list',
@@ -18,12 +21,18 @@ export class PostListComponent implements OnInit {
   postDetail!: Post;
 
 
-  constructor(private http: HttpClient, private postService: PostService) {
+  constructor(private http: HttpClient, private postService: PostService, private applyService: ApplyService) {
   }
 
-
   ngOnInit(): void {
-    this.pagePost({page:0, size:5})
+    this.pagePost({page:0, size:5});
+    this.findAllPostByStatusAndApply();
+  }
+
+  findAllPostByStatusAndApply() {
+    this.postService.findAllPostByStatusAndApply().subscribe(data => {
+      this.posts = data;
+    })
   }
 
   pagePost(nextPage: any){
@@ -47,6 +56,13 @@ export class PostListComponent implements OnInit {
   getPostDetail(id: number) {
     this.postService.findPostById(id).subscribe((data) =>{
       this.postDetail = data;
+    })
+  }
+
+  apply(pid: number) {
+    // @ts-ignore
+    this.applyService.apply(pid).subscribe(() => {
+      alert("apply thanh` cong")
     })
   }
 }

@@ -1671,3 +1671,7 @@ h1, h2, h3, h4 {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+
+.margin-thang {
+  margin-left: 77%;
+}

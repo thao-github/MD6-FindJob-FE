@@ -110,7 +110,7 @@ export class RegisterComponent implements OnInit {
         this.statusCompany = 'The email existed.'
       }
       if (JSON.stringify(data) == JSON.stringify(this.success)) {
-        alert('Create Account SUCCESS.') ;
+        alert('Your account will be confirmed in 1 to 5 days. You will receive an email notification from the system after we confirm you are a business.') ;
         this.router.navigate(['/login'])
 
       }

@@ -25,6 +25,14 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  searchCompany() {
+    // @ts-ignore
+    let search  = document.getElementById("search-input").value;
+    this.adminService.searchCompany(search).subscribe(data => {
+      this.listCompany = data;
+    })
+  }
+
   confirmCompany(company: Company) {
     this.adminService.confirmCompany(company).subscribe(() => {
       this.getAllCompany();

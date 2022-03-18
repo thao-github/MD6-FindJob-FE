@@ -17,6 +17,7 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./home.component.css']
 })
 export class  HomeComponent implements OnInit {
+
   posts: Post[] = [];
 
   totalElements: number = 0;
@@ -86,6 +87,7 @@ export class  HomeComponent implements OnInit {
   search(searchForm: any) {
     this.userService.searching(searchForm).subscribe((posts) => {
       this.posts = posts;
+      this.totalElements = posts.length;
     }, error => {
       console.log(error)
     })

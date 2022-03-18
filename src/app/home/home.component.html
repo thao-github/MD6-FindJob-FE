@@ -32,7 +32,7 @@
                        placeholder="Job title, Company...">
               </div>
 
-              <select formControlName="jobLocation" id="jobLocation">
+              <select formControlName="jobLocation" id="jobLocation" >
                 <option selected>Select Region</option>
                 <option ngValue="null" >any</option>
                 <option *ngFor="let jobLocation of jobLocations" ngValue="{{jobLocation.job_location}}">{{jobLocation.job_location}}</option>

@@ -24,4 +24,9 @@ export class AdminService {
     return this.http.get(this.API_URL + "company")
   }
 
+  searchCompany(email: string): Observable<any> {
+    return this.http.get(this.API_URL + "admin/search/" + email)
+  }
+
+
 }

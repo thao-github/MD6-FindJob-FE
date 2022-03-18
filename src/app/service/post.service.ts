@@ -8,30 +8,28 @@ import {Post} from "../model/Post";
   providedIn: 'root'
 })
 export class PostService {
-  private API_COMPANY= environment.API_LOCAL +`company`
+  private API_COMPANY = environment.API_LOCAL + `company`
 
   constructor(private http: HttpClient) {
   }
 
-  getAllField():Observable<any>{
-    return this.http.get<any>(this.API_COMPANY + `/field` )
+  getAllField(): Observable<any> {
+    return this.http.get<any>(this.API_COMPANY + `/field`)
   }
 
-  createPost(post: Post):Observable<any>{
-    return this.http.post<any>(this.API_COMPANY +`/post/create`,post)
+  createPost(post: Post): Observable<any> {
+    return this.http.post<any>(this.API_COMPANY + `/post/create`, post)
   }
 
-  findPostById(id:number):Observable<any>{
-    return this.http.get<any>(this.API_COMPANY +`/post/${id}`)
+  findPostById(id: number): Observable<any> {
+    return this.http.get<any>(this.API_COMPANY + `/post/${id}`)
   }
 
   editPost(id: number, post: Post): Observable<any> {
     return this.http.put<any>(this.API_COMPANY + `/post/edit/${id}`, post)
   }
 
-  blockPost(id:number, status: boolean):Observable<any>{
-    return this.http.put<any>(this.API_COMPANY+`/post/status/${id}`, status)
+  blockPost(id: number, status: boolean): Observable<any> {
+    return this.http.put<any>(this.API_COMPANY + `/post/status/${id}`, status)
   }
-
-
 }

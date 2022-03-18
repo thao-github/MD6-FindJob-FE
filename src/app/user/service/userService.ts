@@ -30,9 +30,9 @@ API_USER = environment.API_LOCAL + `user`;
   searching(searchForm: any): Observable<any> {
     let formSearch: SearchForm = new SearchForm("","",0,0,0);
     if (searchForm.salary != null){
-      formSearch = new SearchForm(searchForm.title, searchForm.address, searchForm.idField, searchForm.salary.min, searchForm.salary.max);
+      formSearch = new SearchForm(searchForm.title, searchForm.jobLocation, searchForm.idField, searchForm.salary.min, searchForm.salary.max);
     }else {
-      formSearch = new SearchForm(searchForm.title, searchForm.address, searchForm.idField, null,null);
+      formSearch = new SearchForm(searchForm.title, searchForm.jobLocation, searchForm.idField, null,null);
     }
     console.log(formSearch)
     // const params = nextPage;

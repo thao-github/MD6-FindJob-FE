@@ -32,4 +32,8 @@ export class PostService {
   blockPost(id: number, status: boolean): Observable<any> {
     return this.http.put<any>(this.API_COMPANY + `/post/status/${id}`, status)
   }
+
+  countApplyByPost(id: number):Observable<any>{
+    return this.http.get<any>(this.API_COMPANY +`/post/count/${id}`)
+  }
 }

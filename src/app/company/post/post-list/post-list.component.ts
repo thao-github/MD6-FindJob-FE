@@ -4,6 +4,9 @@ import {PostService} from "../../../service/post.service";
 import {PageEvent} from "@angular/material/paginator";
 import {CompanyService} from "../../../service/company.service";
 import {Company} from "../../../model/Company";
+import {Users} from "../../../model/users";
+import {UserService} from "../../../user/service/userService";
+
 
 
 @Component({
@@ -17,7 +20,7 @@ export class PostListComponent implements OnInit {
   postDetail!: Post;
   totalElements: number = 0;
   company!: Company;
-  postStatus!: boolean;
+  users: Users[] = [];
 
   constructor(private postService: PostService,
               private companyService: CompanyService) {}
@@ -27,7 +30,6 @@ export class PostListComponent implements OnInit {
     this.id = window.sessionStorage.getItem('company');
     this.findCompanyById(this.id);
     this.getPagePost(this.id, {page:0, size: 5});
-
 
   }
 
@@ -52,7 +54,7 @@ export class PostListComponent implements OnInit {
   getPostDetail(id: number) {
     this.postService.findPostById(id).subscribe((data) =>{
       this.postDetail = data;
-      console.log('post detail--->',this.postDetail);
+      this.countApplyByPost(this.postDetail.id);
     }
    )
   }
@@ -66,8 +68,15 @@ export class PostListComponent implements OnInit {
 
   blockPost(id: number, status: boolean){
     this.postService.blockPost(id, status).subscribe(() =>{
-      alert('Post BLOCKED.');
+      alert('SUCCESS.');
       window.location.reload();
+    })
+  }
+
+  countApplyByPost(id:number){
+    this.postService.countApplyByPost(id).subscribe((data) => {
+      this.users = data;
+      console.log('users', this.users);
     })
   }
 

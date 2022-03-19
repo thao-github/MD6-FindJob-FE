@@ -12,6 +12,7 @@ import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {AppModule} from "../app.module";
+import { ApplyListComponent } from './apply-list/apply-list.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {AppModule} from "../app.module";
     PostCreateComponent,
     PostEditComponent,
     PostListComponent,
+    ApplyListComponent,
   ],
   exports: [
     NavbarComponent

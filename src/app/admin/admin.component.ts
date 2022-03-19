@@ -55,11 +55,5 @@ export class AdminComponent implements OnInit {
     },1 );
   }
 
-  searchCompany() {
-    // @ts-ignore
-    let search  = document.getElementById("search-input").value;
-    this.adminService.searchCompany(search).subscribe(data => {
-      this.listCompany = data;
-    })
-  }
+
 }

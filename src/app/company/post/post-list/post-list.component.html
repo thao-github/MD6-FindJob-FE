@@ -10,7 +10,6 @@
     <div class="site-mobile-menu-body"></div>
   </div> <!-- .site-mobile-menu -->
 
-
   <!--  HOME-->
   <!--  SEARCH AREA-->
   <section class="home-section section-hero overlay bg-image" style="background-image: url('assets/images/hero_1.jpg');"
@@ -38,7 +37,7 @@
 
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
-          <h2 class="section-title mb-2"> Job Listed</h2>
+          <h2 class="section-title mb-2">{{totalElements}} Job Listed</h2>
         </div>
       </div>
 
@@ -86,6 +85,10 @@
       </div>
       <!--      body-->
       <div class="modal-body">
+        <div class="col-lg-12">
+          <a [routerLink] = "['/company/applyList', postDetail?.id]" class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span> Number of apply: {{users.length}}
+          </a>
+        </div>
         <div class="row">
           <div class="col-lg-12">
             <figure class="mb-5"><img src="assets/images/job_single_img_1.jpg" alt="Image" class="img-fluid rounded">

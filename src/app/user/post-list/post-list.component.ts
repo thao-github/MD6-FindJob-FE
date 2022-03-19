@@ -4,8 +4,7 @@ import {PostService} from "../service/postService";
 import {PageEvent} from "@angular/material/paginator";
 import {Post} from "../../model/Post";
 import {ApplyService} from "../service/apply.service";
-import {Users} from "../../model/users";
-import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-post-list',
@@ -32,6 +31,7 @@ export class PostListComponent implements OnInit {
   findAllPostByStatusAndApply() {
     this.postService.findAllPostByStatusAndApply().subscribe(data => {
       this.posts = data;
+      this.totalElements = this.posts.length;
     })
   }
 
@@ -62,7 +62,8 @@ export class PostListComponent implements OnInit {
   apply(pid: number) {
     // @ts-ignore
     this.applyService.apply(pid).subscribe(() => {
-      alert("apply thanh` cong")
+      alert("Apply SUCCESS.");
+      window.location.reload();
     })
   }
 }

@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="site-wrap">
+  <!-- HOME -->
+  <section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');"
+           id="home-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1 class="text-white font-weight-bold">Applied User List</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tab-content margin-custom1" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="login-user" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="col-lg-6 mb-5 mb-lg-0"><br>
+        <div class="container">
+          <h2> {{post?.title}}</h2>
+          <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>User name</th>
+              <th>Avatar</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>CV</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr *ngFor="let user of users, index as i">
+              <td>{{user?.name}}</td>
+              <td><img style="width: 100px; height: 130px" src="{{user.avatar}}"></td>
+              <td>{{user?.email}}</td>
+              <td>{{user?.phoneNumber}}</td>
+              <td>{{user?.address}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

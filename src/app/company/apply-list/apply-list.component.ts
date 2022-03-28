@@ -30,7 +30,6 @@ export class ApplyListComponent implements OnInit {
   getAppliedUserList(id: number) {
     this.postService.countApplyByPost(id).subscribe((data) => {
       this.users = data;
-      console.log('users', this.users);
     })
   }
 

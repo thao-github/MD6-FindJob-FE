@@ -81,4 +81,10 @@ export class PostListComponent implements OnInit {
   }
 
 
+  // getAppliedList(id: number | undefined) {
+  //   this.postService.countApplyByPost(id).subscribe((data) => {
+  //     this.users = data;
+  //     console.log('users', this.users);
+  //   })
+  // }
 }

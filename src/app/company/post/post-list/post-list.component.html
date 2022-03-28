@@ -86,7 +86,7 @@
       <!--      body-->
       <div class="modal-body">
         <div class="col-lg-12">
-          <a [routerLink] = "['/company/applyList', postDetail?.id]" class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span> Number of apply: {{users.length}}
+          <a [routerLink]="['/company/applyList', postDetail?.id]" data-dismiss="modal" class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span> Number of apply: {{users.length}}
           </a>
         </div>
         <div class="row">
